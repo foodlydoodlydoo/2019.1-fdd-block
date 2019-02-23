@@ -70,11 +70,13 @@ registerBlockType('fdd-block/stepbystep', {
 			if (!src) return null;
 
 			return (
+				<a href={src}>
 				<img
 					className="stepbystep__image"
 					src={src}
 					alt={alt}
-				/>
+					/>
+				</a>
 			);
 		};
 
