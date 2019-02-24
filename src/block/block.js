@@ -9,6 +9,7 @@ registerBlockType('fdd-block/stepbystep', {
 	title: 'FDD: Step By Step/Page',
 	icon: 'heart',
 	category: 'common',
+	useOnce: true,
 	attributes: {
 	},
 
@@ -43,12 +44,10 @@ registerBlockType('fdd-block/stepbystep--step', {
 	},
 
 	edit(params) {
-		console.log('fdd-block/stepbystep--step!edit');
-		console.log(params);
-
 		const TEMPLATE = [
 			['core/image', {
-				caption: '',
+				caption: null,
+				href: (args) => console.log(args),
 				linkDestination: 'media'
 			}],
 			['fdd-block/stepbystep--step-description-container', {}]
@@ -96,3 +95,14 @@ registerBlockType('fdd-block/stepbystep--step-description-container', {
 	}
 });
 
+wp.hooks.addFilter(
+	'blocks.registerBlockType',
+	'my-plugin/class-names/list-block',
+	(properties, name) => {
+		//console.log(name);
+		//console.log(properties);
+		if (name === 'core/image') {
+		}
+		return properties;
+	}
+);
