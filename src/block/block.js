@@ -1,94 +1,98 @@
-const { RichText, MediaUpload, PlainText } = wp.editor;
+const { InnerBlocks } = wp.editor;
 const { registerBlockType } = wp.blocks;
-const { Button } = wp.components;
 
 import './style.scss';
 import './editor.scss';
 
+
 registerBlockType('fdd-block/stepbystep', {
-	title: 'Step By Step',
+	title: 'FDD: Step By Step/Page',
 	icon: 'heart',
 	category: 'common',
 	attributes: {
-		body: {
-			type: 'array',
-			source: 'children',
-			selector: '.stepbystep__body'
-		},
-		imageAlt: {
-			attribute: 'alt',
-			selector: '.stepbystep__image'
-		},
-		imageUrl: {
-			attribute: 'src',
-			selector: '.stepbystep__image'
-		}
 	},
 
-	edit({ attributes, className, setAttributes }) {
-		const getImageButton = (openEvent) => {
-			if (attributes.imageUrl) {
-				return (
-					<img
-						src={attributes.imageUrl}
-						onClick={openEvent}
-						className="image"
-					/>
-				);
-			} else {
-				return (
-					<div className="button-container">
-						<Button
-							onClick={openEvent}
-							className="button button-large"
-						>Pick an image</Button>
-					</div>
-				);
-			}
-		};
-		
+	edit() {
 		return (
 			<div className="container">
-				<MediaUpload
-					onSelect={media => { setAttributes({ imageAlt: media.alt, imageUrl: media.url }); }}
-					type="image"
-					value={attributes.imageID}
-					render={({ open }) => getImageButton(open)}
+				<InnerBlocks
+					allowedBlocks={['fdd-block/stepbystep--step']}
+					template={[['fdd-block/stepbystep--step']]}
+					templateLock={false}
 				/>
-				<RichText
-					onChange={content => setAttributes({ body: content })}
-					value={attributes.body}
-					multiline="p"
-					placeholder="One step text"
-				/>
-			</div>			
+			</div>
 		);
 	},
 
-	save({ attributes }) {
-		const cardImage = (src, alt) => {
-			if (!src) return null;
-
-			return (
-				<a href={src}>
-				<img
-					className="stepbystep__image"
-					src={src}
-					alt={alt}
-					/>
-				</a>
-			);
-		};
-
+	save() {
 		return (
-			<div className="card">
-				{cardImage(attributes.imageUrl, attributes.imageAlt)}
-				<div className="stepbystep__content">
-					<div className="stepbystep__body">
-						{attributes.body}
-					</div>
-				</div>
+			<div className="fdd-step-by-step--page">
+				<InnerBlocks.Content />
 			</div>
 		);
-	}	
+	}
 });
+
+
+registerBlockType('fdd-block/stepbystep--step', {
+	title: 'FDD: Step By Step/Step',
+	icon: 'heart',
+	category: 'common',
+	parent: ['fdd-block/stepbystep'],
+	attributes: {
+	},
+
+	edit(params) {
+		console.log('fdd-block/stepbystep--step!edit');
+		console.log(params);
+
+		const TEMPLATE = [
+			['core/image', {
+				caption: '',
+				linkDestination: 'media'
+			}],
+			['fdd-block/stepbystep--step-description-container', {}]
+		];
+
+		return (
+			<div className="container">
+				<InnerBlocks template={TEMPLATE} templateLock="all" />
+			</div>
+		);
+	},
+
+	save() {
+		return (
+			<div className="fdd-step-by-step--step fdd-image-container">
+				<InnerBlocks.Content />
+			</div>
+		);
+	}
+});
+
+
+registerBlockType('fdd-block/stepbystep--step-description-container', {
+	title: 'FDD: Step By Step/Step Text',
+	icon: 'heart',
+	category: 'common',
+	parent: ['fdd-block/stepbystep--step'],
+	attributes: {
+	},
+
+	edit() {
+		return (
+			<div>
+				<InnerBlocks allowedBlocks={['core/paragraph']} templateLock={false} />
+			</div>
+		);
+	},
+
+	save() {
+		return (
+			<div className="fdd-step-by-step--step-description">
+				<InnerBlocks.Content />
+			</div>
+		);
+	}
+});
+
