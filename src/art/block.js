@@ -6,7 +6,7 @@ import './editor.scss';
 
 
 registerBlockType('fdd-block/art', {
-	title: 'FDD: Step By Step/Page',
+	title: 'FDD: Art/Page',
 	icon: 'heart',
 	category: 'common',
 	useOnce: true,
@@ -17,8 +17,8 @@ registerBlockType('fdd-block/art', {
 		return (
 			<div className="container">
 				<InnerBlocks
-					allowedBlocks={['fdd-block/art--step-with-image']}
-					template={[['fdd-block/art--step-with-image']]}
+					allowedBlocks={['fdd-block/art--description-container', 'core/image']}
+					template={[['fdd-block/art--description-container'], ['core/image']]}
 					templateLock={false}
 				/>
 			</div>
@@ -27,74 +27,7 @@ registerBlockType('fdd-block/art', {
 
 	save() {
 		return (
-			<div className="fdd-step-by-step--page">
-				<InnerBlocks.Content />
-			</div>
-		);
-	}
-});
-
-
-registerBlockType('fdd-block/art--step-with-image', {
-	title: 'FDD: Step By Step/Step',
-	icon: 'heart',
-	category: 'common',
-	parent: ['fdd-block/art'],
-	attributes: {
-	},
-
-	edit() {
-		const TEMPLATE = [
-			['core/image', {
-				caption: null,
-				href: (args) => console.log(args),
-				linkDestination: 'media'
-			}],
-			['fdd-block/art--step-description-container', {}]
-		];
-
-		return (
-			<div className="container">
-				<InnerBlocks template={TEMPLATE} templateLock="all" />
-			</div>
-		);
-	},
-
-	save() {
-		return (
-			<div className="fdd-step-by-step--step fdd-image-container">
-				<InnerBlocks.Content />
-			</div>
-		);
-	}
-});
-
-
-registerBlockType('fdd-block/art--step-with-video', {
-	title: 'FDD: Step By Step/Step',
-	icon: 'heart',
-	category: 'common',
-	parent: ['fdd-block/art'],
-	attributes: {
-	},
-
-	edit() {
-		const TEMPLATE = [
-			['core/video', { //????
-			}],
-			['fdd-block/art--step-description-container', {}]
-		];
-
-		return (
-			<div className="container">
-				<InnerBlocks template={TEMPLATE} templateLock="all" />
-			</div>
-		);
-	},
-
-	save() {
-		return (
-			<div className="fdd-step-by-step--step fdd-image-container">
+			<div className="fdd-art--page fdd-image-container">
 				<InnerBlocks.Content />
 			</div>
 		);
@@ -103,10 +36,10 @@ registerBlockType('fdd-block/art--step-with-video', {
 
 
 registerBlockType('fdd-block/art--step-description-container', {
-	title: 'FDD: Step By Step/Step Text',
+	title: 'FDD: Art/Description',
 	icon: 'heart',
 	category: 'common',
-	parent: ['fdd-block/art--step-with-image', 'fdd-block/art--step-with-video'],
+	parent: ['fdd-block/art--step-with-image'],
 	attributes: {
 	},
 
@@ -120,21 +53,9 @@ registerBlockType('fdd-block/art--step-description-container', {
 
 	save() {
 		return (
-			<div className="fdd-step-by-step--step-description">
+			<div className="fdd-art--description">
 				<InnerBlocks.Content />
 			</div>
 		);
 	}
 });
-
-wp.hooks.addFilter(
-	'blocks.registerBlockType',
-	'my-plugin/class-names/list-block',
-	(properties, name) => {
-		//console.log(name);
-		//console.log(properties);
-		if (name === 'core/image') {
-		}
-		return properties;
-	}
-);

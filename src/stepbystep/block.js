@@ -126,15 +126,3 @@ registerBlockType('fdd-block/stepbystep--step-description-container', {
 		);
 	}
 });
-
-wp.hooks.addFilter(
-	'blocks.registerBlockType',
-	'my-plugin/class-names/list-block',
-	(properties, name) => {
-		//console.log(name);
-		//console.log(properties);
-		if (name === 'core/image') {
-		}
-		return properties;
-	}
-);
