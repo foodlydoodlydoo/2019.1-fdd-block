@@ -1,0 +1,32 @@
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+
+.fdd-step-by-step--page {
+  margin: 0;
+  padding: 0;
+}
+
+.fdd-step-by-step--step {
+  padding: 0;
+  position: relative;
+}
+
+.fdd-step-by-step--step figure {
+  /*position: relative;*/
+  /*float: left;*/
+  width: 45%; /* ? */
+  display: inline-block;
+}
+
+.fdd-step-by-step--step-description {
+  /*position: relative;*/
+  /*float: right;*/
+  display: inline-block;
+  right: 0;
+  width: 45%;
+  padding: 1em;
+  background: $white-transparent;
+}

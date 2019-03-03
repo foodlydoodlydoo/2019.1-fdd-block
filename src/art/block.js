@@ -5,7 +5,7 @@ import './style.scss';
 import './editor.scss';
 
 
-registerBlockType('fdd-block/stepbystep', {
+registerBlockType('fdd-block/art', {
 	title: 'FDD: Step By Step/Page',
 	icon: 'heart',
 	category: 'common',
@@ -17,8 +17,8 @@ registerBlockType('fdd-block/stepbystep', {
 		return (
 			<div className="container">
 				<InnerBlocks
-					allowedBlocks={['fdd-block/stepbystep--step']}
-					template={[['fdd-block/stepbystep--step']]}
+					allowedBlocks={['fdd-block/art--step-with-image']}
+					template={[['fdd-block/art--step-with-image']]}
 					templateLock={false}
 				/>
 			</div>
@@ -35,22 +35,22 @@ registerBlockType('fdd-block/stepbystep', {
 });
 
 
-registerBlockType('fdd-block/stepbystep--step', {
+registerBlockType('fdd-block/art--step-with-image', {
 	title: 'FDD: Step By Step/Step',
 	icon: 'heart',
 	category: 'common',
-	parent: ['fdd-block/stepbystep'],
+	parent: ['fdd-block/art'],
 	attributes: {
 	},
 
-	edit(params) {
+	edit() {
 		const TEMPLATE = [
 			['core/image', {
 				caption: null,
 				href: (args) => console.log(args),
 				linkDestination: 'media'
 			}],
-			['fdd-block/stepbystep--step-description-container', {}]
+			['fdd-block/art--step-description-container', {}]
 		];
 
 		return (
@@ -70,11 +70,43 @@ registerBlockType('fdd-block/stepbystep--step', {
 });
 
 
-registerBlockType('fdd-block/stepbystep--step-description-container', {
+registerBlockType('fdd-block/art--step-with-video', {
+	title: 'FDD: Step By Step/Step',
+	icon: 'heart',
+	category: 'common',
+	parent: ['fdd-block/art'],
+	attributes: {
+	},
+
+	edit() {
+		const TEMPLATE = [
+			['core/video', { //????
+			}],
+			['fdd-block/art--step-description-container', {}]
+		];
+
+		return (
+			<div className="container">
+				<InnerBlocks template={TEMPLATE} templateLock="all" />
+			</div>
+		);
+	},
+
+	save() {
+		return (
+			<div className="fdd-step-by-step--step fdd-image-container">
+				<InnerBlocks.Content />
+			</div>
+		);
+	}
+});
+
+
+registerBlockType('fdd-block/art--step-description-container', {
 	title: 'FDD: Step By Step/Step Text',
 	icon: 'heart',
 	category: 'common',
-	parent: ['fdd-block/stepbystep--step'],
+	parent: ['fdd-block/art--step-with-image', 'fdd-block/art--step-with-video'],
 	attributes: {
 	},
 

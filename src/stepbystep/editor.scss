@@ -1,0 +1,15 @@
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+
+@import '../common';
+
+.wp-block {    
+  .container {
+    border: 2px solid $gray;
+    padding: 1rem;
+  }
+}
