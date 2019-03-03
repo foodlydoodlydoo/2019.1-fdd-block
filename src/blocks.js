@@ -18,13 +18,13 @@ wp.hooks.addFilter(
   'fdd-blocks/common/hook',
   (properties, name) => {
     if (name === 'core/image') {
-      console.log(`registration`);
-      console.log(properties);
+      //console.log(`registration`);
+      //console.log(properties);
 
       let edit = properties.edit;
       properties.edit = function () {
-        console.log(`hook to core/image.edit() ENTER`);
-        console.log(arguments);
+        //console.log(`hook to core/image.edit() ENTER`);
+        //console.log(arguments);
 
         let block = arguments[0];
         let { attributes } = block;
@@ -36,7 +36,7 @@ wp.hooks.addFilter(
 
         let result = edit.apply(this, arguments);
 
-        console.log(`hook to core/image.edit() LEAVE`);
+        //console.log(`hook to core/image.edit() LEAVE`);
         return result;
       }
     }
