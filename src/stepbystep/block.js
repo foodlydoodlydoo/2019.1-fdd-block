@@ -4,9 +4,11 @@ const { registerBlockType } = wp.blocks;
 import './style.scss';
 import './editor.scss';
 
-
-registerBlockType('fdd-block/stepbystep', {
-	title: 'FDD: Step By Step/Page',
+/********************************************************
+ *   Whole page blocks
+ ********************************************************/
+registerBlockType('fdd-block/stepbystep--page-images', {
+	title: 'FDD: Step By Step/Images',
 	icon: 'heart',
 	category: 'common',
 	useOnce: true,
@@ -17,7 +19,7 @@ registerBlockType('fdd-block/stepbystep', {
 		return (
 			<div className="container">
 				<InnerBlocks
-					allowedBlocks={['fdd-block/stepbystep--step-with-image']}
+					allowedBlocks={['fdd-block/stepbystep--step-with-image', 'fdd-block/stepbystep--step-with-video']}
 					template={[['fdd-block/stepbystep--step-with-image']]}
 					templateLock={false}
 				/>
@@ -34,20 +36,53 @@ registerBlockType('fdd-block/stepbystep', {
 	}
 });
 
-
-registerBlockType('fdd-block/stepbystep--step-with-image', {
-	title: 'FDD: Step By Step/Step',
+registerBlockType('fdd-block/stepbystep--page-video', {
+	title: 'FDD: Step By Step/Video',
 	icon: 'heart',
 	category: 'common',
-	parent: ['fdd-block/stepbystep'],
+	useOnce: true,
+	attributes: {
+	},
+
+	edit() {
+		return (
+			<div className="container">
+				<InnerBlocks
+					allowedBlocks={['fdd-block/stepbystep--step-with-video']}
+					template={[['fdd-block/stepbystep--step-with-video']]}
+					templateLock="all"
+				/>
+			</div>
+		);
+	},
+
+	save() {
+		return (
+			<div className="fdd-step-by-step--page">
+				<InnerBlocks.Content />
+			</div>
+		);
+	}
+});
+
+
+/********************************************************
+ *   Single step blocks
+ ********************************************************/
+registerBlockType('fdd-block/stepbystep--step-with-image', {
+	title: 'FDD: Step By Step/Step with Image',
+	icon: 'heart',
+	category: 'common',
+	parent: [
+		'fdd-block/stepbystep--page-images',
+		'fdd-block/stepbystep--page-video'
+	],
 	attributes: {
 	},
 
 	edit() {
 		const TEMPLATE = [
 			['core/image', {
-				caption: null,
-				href: (args) => console.log(args),
 				linkDestination: 'media'
 			}],
 			['fdd-block/stepbystep--step-description-container', {}]
@@ -69,44 +104,53 @@ registerBlockType('fdd-block/stepbystep--step-with-image', {
 	}
 });
 
-
 registerBlockType('fdd-block/stepbystep--step-with-video', {
-	title: 'FDD: Step By Step/Step',
+	title: 'FDD: Step By Step/Step with Video',
 	icon: 'heart',
 	category: 'common',
-	parent: ['fdd-block/stepbystep'],
+	parent: [
+		'fdd-block/stepbystep--page-images',
+		'fdd-block/stepbystep--page-video'
+	],
 	attributes: {
 	},
 
 	edit() {
 		const TEMPLATE = [
-			['core/video', { //????
-			}],
+			['fdd-block/video-embed'],
 			['fdd-block/stepbystep--step-description-container', {}]
 		];
 
 		return (
-			<div className="container">
-				<InnerBlocks template={TEMPLATE} templateLock="all" />
+			<div className="container" >
+				<InnerBlocks
+					template={TEMPLATE}
+					allowedBlocks={['fdd-block/stepbystep--step-description-container']}
+					templateLock={false} />
 			</div>
 		);
 	},
 
 	save() {
 		return (
-			<div className="fdd-step-by-step--step fdd-image-container">
+			<div className="fdd-step-by-step--step fdd-video-container">
 				<InnerBlocks.Content />
 			</div>
 		);
 	}
 });
 
-
+/********************************************************
+ *   Rich text blocks inside steps
+ ********************************************************/
 registerBlockType('fdd-block/stepbystep--step-description-container', {
 	title: 'FDD: Step By Step/Step Text',
 	icon: 'heart',
 	category: 'common',
-	parent: ['fdd-block/stepbystep--step-with-image', 'fdd-block/stepbystep--step-with-video'],
+	parent: [
+		'fdd-block/stepbystep--step-with-image',
+		'fdd-block/stepbystep--step-with-video'
+	],
 	attributes: {
 	},
 
