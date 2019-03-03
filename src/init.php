@@ -68,7 +68,7 @@ add_action('enqueue_block_editor_assets', 'fdd_block_cgb_editor_assets');
 // mhm: this is for registry of dynamic content, we don't need it now!
 function fdd_block_register_blocks() {
   // see: https://www.ibenic.com/enable-inner-blocks-gutenberg/
-  if (false) {
+  if (0) {
     register_block_type('fdd-block/<blockname>', array(
       'render_callback' => 'fdd_block_<blockname>_render_content',
     ));
