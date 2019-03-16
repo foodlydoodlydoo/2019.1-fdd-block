@@ -97,11 +97,21 @@ registerBlockType('fdd-block/stepbystep--step-with-image', {
 
 	save() {
 		return (
-			<div className="fdd-step-by-step--step fdd-image-container">
-				<InnerBlocks.Content />
-			</div>
+			<InnerBlocks.Content />
 		);
-	}
+	},
+
+	deprecated: [
+		{
+			save() {
+				return (
+					<div className="fdd-step-by-step--step fdd-image-container">
+						<InnerBlocks.Content />
+					</div>
+				);
+			}
+		}
+	],
 });
 
 registerBlockType('fdd-block/stepbystep--step-with-video', {

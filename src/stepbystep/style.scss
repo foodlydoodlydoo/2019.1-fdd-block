@@ -7,26 +7,44 @@
 .fdd-step-by-step--page {
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; 
+  align-items: flex-start;
 }
 
 .fdd-step-by-step--step {
   padding: 0;
-  position: relative;
 }
 
-.fdd-step-by-step--step figure {
-  /*position: relative;*/
-  /*float: left;*/
-  width: 45%; /* ? */
-  display: inline-block;
-}
+@media screen and (orientation: landscape) and (min-width: 1200px) {
 
-.fdd-step-by-step--step-description {
-  /*position: relative;*/
-  /*float: right;*/
-  display: inline-block;
-  right: 0;
-  width: 45%;
-  padding: 0 1em;
-  background: $white-transparent;
+  .fdd-step-by-step--step {
+    margin-bottom: 10vh;
+  }
+
+  .fdd-step-by-step--page figure {
+    //position: relative;
+    display: inline-block;
+    //float: left;
+    //top: 0;
+    margin: 0;
+    margin-right: 50%; // when -description is pos: abs;
+    width: 50%;
+    padding-left: 5%;
+    padding-bottom: 1em;
+    opacity: 1;
+    margin-bottom: -5px; // to remove the spacing between them
+  }
+
+  .fdd-step-by-step--step-description {
+    position: absolute;
+    display: inline-block;
+    //float: right;
+    margin-left: 50%;
+    width: 46%;
+    padding: 0 2%;
+    background: $white-transparent;
+  }
+
 }
