@@ -10,17 +10,25 @@
  static-images-right
     Images are on the right side
     Text is on the left side, squashed
-    .fdd-step-by-step--step div is not expected
+    .fdd-step-by-step--step div can be present or not
     All is static
 
- absolute-positioned-images-text-right 
-    Images are left with position absolute and visibility: invisible
-    Text is on the right, naturaly squshed
-    .fdd-step-by-step--step div ?
+ static-images-scaled-left 
+    Images are left and scaled to have all the same height and cover (aspect preserved by cropping)
+    Text is on the right, each step by its respective image
+    .fdd-step-by-step--step div must be present
+    
+ dynamic-images-left
+    Images on the left, absolute and initially hidden?
+    Test is on the right naturally squashed
+    .fdd-step-by-step--step div must be present
     Images are expected to be controlled via js scroll/intersection observer
+
 */ 
 
-$sBs-layout: static-images-right;
+// $sBs-layout: static-images-right;
+// $sBs-layout: static-images-scaled-left;
+$sBs-layout: dynamic-images-left;
 
 
 .fdd-step-by-step--page {
@@ -30,7 +38,7 @@ $sBs-layout: static-images-right;
 
 @if $sBs-layout == static-images-right {
 
-@media screen and (orientation: landscape) and (min-width: $fdd-wide-width-pixels) {
+@media screen and (min-width: $fdd-wide-width-pixels) {
 
   .fdd-step-by-step--page figure {
     margin: 0;
@@ -63,7 +71,7 @@ $sBs-layout: static-images-right;
     padding-right: $fdd-left-padding-small-screen;
   }
 
-  .fdd-step-by-step--page .fdd-step-by-step--step-description {
+  .fdd-step-by-step--page .fdd-image-container .fdd-step-by-step--step-description {
     padding: 3em $fdd-left-padding-small-screen;
     background: $white-transparent;
   }
@@ -71,3 +79,148 @@ $sBs-layout: static-images-right;
 }
 
 } // sBs-layout == static-images-right
+
+
+@if $sBs-layout == static-images-scaled-left {
+
+@media screen and (min-width: $fdd-wide-width-pixels) {
+
+  $image-height: 640px;
+  $image-width: 60%;
+  
+  .fdd-step-by-step--page .fdd-image-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  .fdd-step-by-step--page figure a {
+    position: relative;
+  }
+  
+  .fdd-step-by-step--page figure a img {
+    margin: 0;
+    width: $image-width;
+    height: $image-height;
+    z-index: -1;
+    object-fit: cover;
+    object-position: $image-width 50%;
+    background: black;
+  }
+
+  .fdd-step-by-step--page .fdd-image-container .fdd-step-by-step--step-description {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100% - $image-width - $fdd-left-padding-wide-screen;
+    padding: 0 $fdd-left-padding-wide-screen 1em; // 20%;
+    //background: $white-transparent;
+    // background: linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 25%);
+    height: $image-height;
+  }
+
+  .fdd-step-by-step--page .fdd-step-by-step--step-description { //:first-of-type {
+    padding-top: $fdd-left-padding-wide-screen;
+  }
+
+}
+
+@media screen and (max-width: $fdd-wide-width-pixels - 1px) {
+
+  .fdd-step-by-step--page figure {
+    margin: 0;
+  }
+
+  @if false {
+
+  .fdd-step-by-step--page figure img {
+    padding-left: $fdd-left-padding-small-screen;
+    padding-right: $fdd-left-padding-small-screen;
+  }
+
+  }
+
+  .fdd-step-by-step--page .fdd-step-by-step--step-description {
+    padding: 3em $fdd-left-padding-small-screen;
+    background: $white-transparent;
+  }
+
+}
+
+} // sBs-layout == static-images-scaled-left
+
+
+@if $sBs-layout == dynamic-images-left {
+
+@media screen and (min-width: $fdd-wide-width-pixels) {
+
+  $image-width: 90%;
+  $image-height: 80vh;
+  
+  .fdd-step-by-step--page .fdd-image-container {
+    width: 100%;
+  }
+  
+  .fdd-step-by-step--page figure a {
+    position: fixed;
+    width: $image-width;
+    height: $image-height;
+  }
+  
+  .fdd-step-by-step--page figure a img {
+    position: relative;
+    margin: 0;
+    width: $image-width;
+    height: $image-height;
+    z-index: -1;
+    object-fit: contain; // `cover` crops portrait images
+    object-position: 0 0;
+    //visibility: hidden;
+
+    //opacity: 0.4;
+  }
+
+  .fdd-step-by-step--page .fdd-image-container .fdd-step-by-step--step-description {
+    position: relative;
+    right: 0;
+    top: 0;
+    width: 50% - $fdd-left-padding-wide-screen;
+    padding: 0 $fdd-left-padding-wide-screen 1em 10%;
+    background: linear-gradient(left, rgba(255,255,255,0.8) 0%, rgba(255,255,255,1) 50%);
+    //height: $image-height;
+    float: right;
+    clear: right;
+    z-index: 1;
+  }
+
+  .fdd-step-by-step--page  .fdd-image-container:first-of-type div.fdd-step-by-step--step-description {
+    padding-top: $fdd-left-padding-wide-screen;
+  }
+  .fdd-step-by-step--page  .fdd-image-container:last-of-type div.fdd-step-by-step--step-description {
+    padding-bottom: 50vh;
+  }
+
+}
+
+@media screen and (max-width: $fdd-wide-width-pixels - 1px) {
+
+  .fdd-step-by-step--page figure {
+    margin: 0;
+  }
+
+  @if false {
+
+  .fdd-step-by-step--page figure img {
+    padding-left: $fdd-left-padding-small-screen;
+    padding-right: $fdd-left-padding-small-screen;
+  }
+
+  }
+
+  .fdd-step-by-step--page .fdd-step-by-step--step-description {
+    padding: 3em $fdd-left-padding-small-screen;
+    background: $white-transparent;
+  }
+
+}
+
+} // sBs-layout == dynamic-images-left
