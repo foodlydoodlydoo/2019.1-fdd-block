@@ -81,6 +81,13 @@ registerBlockType('fdd-block/stepbystep--step-with-image', {
 	},
 
 	edit() {
+		const TEMPLATE_REVERSED = [
+			['fdd-block/stepbystep--step-description-container', {}],
+			['core/image', {
+				linkDestination: 'media'
+			}]
+		];
+
 		const TEMPLATE = [
 			['core/image', {
 				linkDestination: 'media'
