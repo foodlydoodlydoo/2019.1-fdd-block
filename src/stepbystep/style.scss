@@ -4,10 +4,31 @@
  * CSS for both Frontend+Backend.
  */
 
+/*
+ Step By Step layout options
+ 
+ static-images-right
+    Images are on the right side
+    Text is on the left side, squashed
+    .fdd-step-by-step--step div is not expected
+    All is static
+
+ absolute-positioned-images-text-right 
+    Images are left with position absolute and visibility: invisible
+    Text is on the right, naturaly squshed
+    .fdd-step-by-step--step div ?
+    Images are expected to be controlled via js scroll/intersection observer
+*/ 
+
+$sBs-layout: static-images-right;
+
+
 .fdd-step-by-step--page {
   margin: 0;
   padding: 0;
 }
+
+@if $sBs-layout == static-images-right {
 
 @media screen and (orientation: landscape) and (min-width: $fdd-wide-width-pixels) {
 
@@ -48,3 +69,5 @@
   }
 
 }
+
+} // sBs-layout == static-images-right
