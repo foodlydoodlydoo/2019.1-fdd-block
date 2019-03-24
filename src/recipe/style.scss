@@ -16,7 +16,7 @@ $first-image-max-height: 40vh;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      padding: 1em 0;
+      padding: 1em 1.5em;
 
       div {
         width: 30%;
@@ -200,3 +200,20 @@ $first-image-max-height: 40vh;
 }
 
 } // @media screen and (max-width: $fdd-wide-width-pixels - 1px)
+
+
+/* Narrow screen nits */
+@media screen and (max-width: 739px) {
+
+.fdd-recipe--page { // [global]
+  .fdd-recipe--text {
+    .fdd-recipe--chars {
+      div {
+        width: 100%;
+        padding: .25em 0;
+      }
+    }
+  }
+}
+
+}
