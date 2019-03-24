@@ -12,7 +12,19 @@ $gray: #aaa;
 $off-white: #f1f1f1;
 $white-transparent: rgba(255, 255, 255, 0.9);
 
+// Keep in sync with fdd-theme\skin\assets\styles\components\typography\_typography.scss
+$base-fdd-text-color:    rgba(38,38,38,0.6);
 
 $fdd-wide-width-pixels: 980px;
-$fdd-left-padding-wide-screen: 2%;
-$fdd-left-padding-small-screen: 5%;
+$fdd-outer-padding-wide-screen: 2%;
+$fdd-outer-padding-small-screen: 5%;
+
+.fdd-bottom-filling {
+  height: 25vh;
+  clear: both;
+}
+
+.block-editor span.oob {
+  font-style: italic;
+  color: #aaa;
+}
