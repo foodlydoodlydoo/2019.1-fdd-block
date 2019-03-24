@@ -1,4 +1,4 @@
-const { InnerBlocks } = wp.editor;
+const { InnerBlocks, PlainText } = wp.editor;
 const { registerBlockType } = wp.blocks;
 
 import './style.scss';
@@ -12,7 +12,10 @@ registerBlockType('fdd-block/video-embed', {
   icon: 'heart',
   category: 'common',
   useOnce: true,
-  parent: ['fdd-block/stepbystep--step-with-video'],
+  parent: [
+    'fdd-block/stepbystep--step-with-video', // TODO remove
+    'fdd-block/recipe--media',
+  ],
   attributes: {
   },
 
@@ -41,3 +44,49 @@ registerBlockType('fdd-block/video-embed', {
   }
 });
 
+
+/********************************************************
+ *   Subtitled paragraph
+ ********************************************************/
+registerBlockType('fdd-block/para-with-title', {
+  title: 'FDD: Titled paragraph',
+  icon: 'heart',
+  category: 'common',
+  useOnce: true,
+  parent: ['fdd-block/recipe--text'],
+  attributes: {
+    title: {
+      source: 'text',
+      selector: '.fdd-titled-para__title',
+      placeholder: 'Section Title',
+    },
+  },
+
+  edit({ attributes, setAttributes }) {
+    return (
+      <div className="container">
+        <PlainText
+          onChange={content => setAttributes({ title: content })}
+          value={attributes.title}
+        />
+        <InnerBlocks
+          allowedBlocks={['core/paragraph']}
+          template={[
+            ['core/paragraph', { placeholder: '...' }],
+          ]}
+          templateLock={false}
+        />
+      </div>
+    );
+  },
+
+  save({ className, attributes }) {
+    let classes = ["fdd-titled-para", className].join(" ");
+    return (
+      <div className={classes}>
+        <h3 className="fdd-titled-para__title">{attributes.title}</h3>
+        <InnerBlocks.Content />
+      </div>
+    );
+  }
+});

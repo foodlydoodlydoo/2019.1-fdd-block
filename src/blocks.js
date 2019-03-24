@@ -11,7 +11,7 @@
 
 import './common/block.js';
 import './art/block.js';
-import './stepbystep/block.js';
+import './recipe/block.js';
 
 wp.hooks.addFilter(
   'blocks.registerBlockType',

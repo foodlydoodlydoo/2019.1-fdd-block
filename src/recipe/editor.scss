@@ -1,0 +1,32 @@
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+
+@import '../common';
+
+.wp-block {    
+  .container {
+    border: 2px solid $gray;
+    padding: 1rem;
+  }
+}
+
+.block-editor {
+  .editor-plain-text {
+    width: 70%;
+    clear: right;
+  }
+
+  .PlainText-label::after {
+    content: ":";
+  }
+  .PlainText-label {
+    color: $gray;
+    width: calc(30% - 1em);
+    float: left;
+    margin-right: 1em;
+  }
+}
