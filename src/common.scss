@@ -20,11 +20,26 @@ $fdd-outer-padding-wide-screen: 2%;
 $fdd-outer-padding-small-screen: 5%;
 
 .fdd-bottom-filling {
-  height: 25vh;
+  height: 10vh; // It's quite possible we don't need any height thanks the clear:both trick
   clear: both;
 }
 
 .block-editor span.oob {
   font-style: italic;
   color: #aaa;
+}
+
+@mixin title__float_right {
+  text-align: center;
+  display: block;
+  line-height: 1em;
+  width: 50%;
+  float: right;
+  padding-right: $fdd-outer-padding-wide-screen;
+}
+
+@mixin title__centered {
+  width: 100%;
+  text-align: center;
+  padding: 0 1em;
 }

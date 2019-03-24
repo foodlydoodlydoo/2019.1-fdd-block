@@ -48,19 +48,22 @@ registerBlockType('fdd-block/video-embed', {
 /********************************************************
  *   Subtitled paragraph
  ********************************************************/
+
+const paraWithTitleAttributes = {
+  title: {
+    source: 'text',
+    selector: '.fdd-titled-para__title',
+    placeholder: 'Section Title',
+  },
+};
+
 registerBlockType('fdd-block/para-with-title', {
   title: 'FDD: Titled paragraph',
   icon: 'heart',
   category: 'common',
   useOnce: true,
   parent: ['fdd-block/recipe--text'],
-  attributes: {
-    title: {
-      source: 'text',
-      selector: '.fdd-titled-para__title',
-      placeholder: 'Section Title',
-    },
-  },
+  attributes: paraWithTitleAttributes,
 
   edit({ attributes, setAttributes }) {
     return (
@@ -85,8 +88,24 @@ registerBlockType('fdd-block/para-with-title', {
     return (
       <div className={classes}>
         <h3 className="fdd-titled-para__title">{attributes.title}</h3>
-        <InnerBlocks.Content />
+        <div className="fdd-titled-para__inner"><InnerBlocks.Content /></div>
       </div>
     );
-  }
+  },
+
+  deprecated: [
+    {
+      attributes: paraWithTitleAttributes,
+      save({ className, attributes }) {
+        let classes = ["fdd-titled-para", className].join(" ");
+        return (
+          <div className={classes}>
+            <h3 className="fdd-titled-para__title">{attributes.title}</h3>
+            <div><InnerBlocks.Content /></div>
+          </div>
+        );
+      },
+    }
+  ]
+
 });
