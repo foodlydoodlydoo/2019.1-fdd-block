@@ -165,7 +165,8 @@ registerBlockType('fdd-block/stepbystep--step-with-video', {
 					</div>
 				);
 			},
-
+		},
+		{
 			save() {
 				return (
 					<InnerBlocks.Content />
