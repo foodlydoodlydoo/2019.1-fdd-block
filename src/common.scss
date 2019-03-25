@@ -19,7 +19,8 @@ $fdd-wide-width-pixels: 980px;
 $fdd-outer-padding-wide-screen: 2%;
 $fdd-outer-padding-small-screen: 5%;
 
-.fdd-bottom-filling {
+// This is used as the last element in page block to provide tailing element for sticky positioning
+.fdd-heel {
   height: 10vh; // It's quite possible we don't need any height thanks the clear:both trick
   clear: both;
 }

@@ -34,10 +34,24 @@ registerBlockType('fdd-block/recipe--page', {
 		return (
 			<div className="fdd-recipe--page">
 				<InnerBlocks.Content />
-				<div className="fdd-bottom-filling"></div>
+				<div className="fdd-heel"></div>
 			</div>
 		);
 	},
+
+	deprecated: [
+		{
+			attributes: {},
+			save() {
+				return (
+					<div className="fdd-recipe--page">
+						<InnerBlocks.Content />
+						<div className="fdd-bottom-filling"></div>
+					</div>
+				);
+			},
+		}
+	]
 });
 
 
