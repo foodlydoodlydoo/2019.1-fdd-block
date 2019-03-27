@@ -14,9 +14,11 @@ $white-transparent: rgba(255, 255, 255, 0.9);
 
 // Keep in sync with fdd-theme\skin\assets\styles\components\typography\_typography.scss
 $base-fdd-text-color:    rgba(38,38,38,0.6);
+$fdd-title-color: black;
 
 $fdd-wide-width-pixels: 980px;
-$fdd-outer-padding-wide-screen: 2%;
+$fdd-outer-padding-wide-screen: 5%;
+$fdd-inner-padding-wide-screen: $fdd-outer-padding-wide-screen / 2;
 $fdd-outer-padding-small-screen: 5%;
 
 // This is used as the last element in page block to provide tailing element for sticky positioning
@@ -31,15 +33,22 @@ $fdd-outer-padding-small-screen: 5%;
 }
 
 @mixin title__float_right {
-  text-align: center;
+  text-align: left;
   display: block;
   line-height: 1em;
-  width: 50%;
+  width: 40%;
   float: right;
+  padding: 0 $fdd-inner-padding-wide-screen;
 }
 
 @mixin title__centered {
   width: 100%;
   text-align: center;
   padding: 0 1em;
+}
+
+.single__title {
+  color: $fdd-title-color;
+  text-transform: uppercase;
+  font-size: 1.5em;
 }

@@ -5,8 +5,8 @@
  */
 
 $image-padding: 2vw;
-$second-and-on-image-max-height: 14vh;
-$first-image-max-height: 40vh;
+$second-and-on-image-max-height: 10vh;
+$first-image-max-height: 60vh;
 
 .fdd-recipe--page { // [global]
 
@@ -16,17 +16,17 @@ $first-image-max-height: 40vh;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      padding: 1em 1.5em;
+      padding: 3em 0;
+      justify-content: space-between;
 
       div {
-        width: 30%;
-        padding: .75em 0;
-        flex-grow: 1;
-        text-align: center;
+        width: 100%;
+        padding: 1px 0;
+        //text-align: center;
       }
       div.fdd-recipe--chars--level {
-        width: 100%;
-        text-align: center;
+        //width: 100%;
+        //text-align: center;
         &.easy {
           color: green;
         }
@@ -87,24 +87,38 @@ $first-image-max-height: 40vh;
   .fdd-recipe--text {
     float: right;
     clear: right;
-    width: 50%;
-    padding: 0 $fdd-outer-padding-wide-screen;
+    width: 40%;
+    padding: 0 $fdd-outer-padding-wide-screen 0 $fdd-inner-padding-wide-screen;
 
     .fdd-titled-para {
       margin-bottom: 4em;
+      &.two-columns {
+        .fdd-titled-para__inner {
+          ul, ol {
+            columns: 12em 2;
+            column-gap: $fdd-outer-padding-small-screen;
+            li {
+              break-inside: avoid;
+            }
+            li:last-child {
+              padding-bottom: 2em;
+            }
+          }
+        }
+      }
     }
   }
 
   .fdd-recipe--media {
     float: left;
     clear: left;
-    width: 50%;
+    width: 60%;
     padding-left: $fdd-outer-padding-wide-screen;
-    padding-right: $fdd-outer-padding-wide-screen;
+    padding-right: $fdd-inner-padding-wide-screen;
 
     // To align the images on the left with the header's top line
     // VERY ROUGH ESTIMATION!  Sensitive to change of the default text size in typography
-    margin-top: -45px;
+    margin-top: -32px;
     position: sticky;
     top: $image-padding;
 
@@ -134,11 +148,13 @@ $first-image-max-height: 40vh;
         margin-left: auto;
         margin-right: auto;
         display: block;
-        //width: 100%;
-        max-width: $first-image-max-height * 4 / 3;
+        max-width: 100%;
+        //max-width: $first-image-max-height * 4 / 3;
+        //max-width: 60%;
         max-height: $first-image-max-height;
         
         object-fit: cover;
+        object-fit: contain;
         object-position: 50% 50%;
         clear: both;
       }
