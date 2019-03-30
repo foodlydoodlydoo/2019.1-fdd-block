@@ -8,14 +8,19 @@ import './editor.scss';
  *   Whole Recipe page blocks and intermediate subblocks
  ********************************************************/
 registerBlockType('fdd-block/recipe--page', {
-	title: 'FDD: Recipe',
-	icon: 'heart',
-	category: 'common',
+	title: 'Recipe',
+	icon: 'editor-ul',
+	category: 'fdd-block-category',
 	useOnce: true,
 	attributes: {
 	},
 
 	edit() {
+		setTimeout(() => {
+			// https://github.com/WordPress/gutenberg/issues/6687#issuecomment-468294328
+			$("#fdd-editor-focus-first").focus();
+		}, 500);
+
 		return (
 			<div className="container">
 				<InnerBlocks
@@ -38,27 +43,13 @@ registerBlockType('fdd-block/recipe--page', {
 			</div>
 		);
 	},
-
-	deprecated: [
-		{
-			attributes: {},
-			save() {
-				return (
-					<div className="fdd-recipe--page">
-						<InnerBlocks.Content />
-						<div className="fdd-bottom-filling"></div>
-					</div>
-				);
-			},
-		}
-	]
 });
 
 
 registerBlockType('fdd-block/recipe--text', {
-	title: 'FDD: Recipe Text',
-	icon: 'heart',
-	category: 'common',
+	title: 'Recipe Text',
+	icon: 'editor-alignleft',
+	category: 'fdd-block-category',
 	useOnce: true,
 	parent: ['fdd-block/recipe--page'],
 	attributes: {
@@ -94,9 +85,9 @@ registerBlockType('fdd-block/recipe--text', {
 
 
 registerBlockType('fdd-block/recipe--media', {
-	title: 'FDD: Recipe Media',
-	icon: 'heart',
-	category: 'common',
+	title: 'Recipe Media',
+	icon: 'images-alt',
+	category: 'fdd-block-category',
 	useOnce: true,
 	parent: ['fdd-block/recipe--page'],
 	attributes: {
@@ -127,9 +118,9 @@ registerBlockType('fdd-block/recipe--media', {
  *   Recipe/Text specific blocks
  ********************************************************/
 registerBlockType('fdd-block/recipe--characteristics', {
-	title: 'FDD: Recipe Characteristics',
-	icon: 'heart',
-	category: 'common',
+	title: 'Recipe Characteristics',
+	icon: 'admin-settings',
+	category: 'fdd-block-category',
 	useOnce: true,
 	parent: ['fdd-block/recipe--text'],
 	attributes: {
@@ -156,6 +147,7 @@ registerBlockType('fdd-block/recipe--characteristics', {
 			<div className="container">
 				<span className="PlainText-label">Level</span>
 				<PlainText
+					id='fdd-editor-focus-first'
 					onChange={content => setAttributes({ level: content })}
 					value={attributes.level}
 				/>

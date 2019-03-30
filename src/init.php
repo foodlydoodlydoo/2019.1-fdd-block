@@ -76,3 +76,22 @@ function fdd_block_register_blocks() {
 }
 
 add_action('init', 'fdd_block_register_blocks');
+
+// FDD blocks category
+
+function fdd_blocks_categories($categories, $post) {
+  if ($post->post_type !== 'post') {
+    return $categories;
+  }
+  return array_merge(
+    $categories,
+    array(
+      array(
+        'slug' => 'fdd-block-category',
+        'title' => 'FDD',
+        'icon' => 'palmtree',
+      ),
+    )
+  );
+}
+add_filter('block_categories', 'fdd_blocks_categories', 10, 2);

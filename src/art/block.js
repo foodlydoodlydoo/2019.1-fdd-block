@@ -6,9 +6,9 @@ import './editor.scss';
 
 
 registerBlockType('fdd-block/art', {
-	title: 'FDD: Art/Page',
-	icon: 'heart',
-	category: 'common',
+	title: 'Art',
+	icon: 'admin-customizer',
+	category: 'fdd-block-category',
 	useOnce: true,
 	attributes: {
 	},
@@ -38,7 +38,7 @@ registerBlockType('fdd-block/art', {
 registerBlockType('fdd-block/art--step-description-container', {
 	title: 'FDD: Art/Description',
 	icon: 'heart',
-	category: 'common',
+	category: 'fdd-block-category',
 	parent: ['fdd-block/art--step-with-image'],
 	attributes: {
 	},

@@ -26,9 +26,9 @@ domReady(() => {
 // Removed in favor of core-embed/youtube
 
 registerBlockType('fdd-block/video-embed', {
-  title: 'FDD: Video Block',
-  icon: 'heart',
-  category: 'common',
+  title: 'Video Block',
+  icon: 'format-video',
+  category: 'fdd-block-category',
   useOnce: true,
   parent: [
     'fdd-block/recipe--media',
@@ -82,9 +82,9 @@ const paraWithTitleAttributes = {
 };
 
 registerBlockType('fdd-block/para-with-title', {
-  title: 'FDD: Titled paragraph',
-  icon: 'heart',
-  category: 'common',
+  title: 'Titled paragraph',
+  icon: 'editor-table',
+  category: 'fdd-block-category',
   useOnce: true,
   parent: ['fdd-block/recipe--text'],
   attributes: paraWithTitleAttributes,

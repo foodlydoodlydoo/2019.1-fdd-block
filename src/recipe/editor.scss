@@ -27,6 +27,10 @@
     color: $gray;
     width: calc(30% - 1em);
     float: left;
-    margin-right: 1em;
+    clear: left;
+    margin-right: .5em;
+    text-align: right;
+    overflow-x: hidden;
+    white-space: nowrap;
   }
 }
