@@ -15,8 +15,8 @@ import './recipe/block.js';
 
 wp.hooks.addFilter(
   'blocks.registerBlockType',
-  'fdd-blocks/common/hook',
-  (properties, name) => {
+  'fdd-blocks/common/registerBlockType_hook',
+  function (properties, name) {
     if (name === 'core/image') {
       //console.log(`registration`);
       //console.log(properties);
