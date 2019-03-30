@@ -13,3 +13,14 @@
     padding: 1rem;
   }
 }
+
+.components-panel {
+  .editor-block-styles__item.is-active {
+     .fake-preview:before {
+        content: '\2705';
+        font-size: 2em;
+        text-align: center;
+        display: block;
+     }
+  }
+}
