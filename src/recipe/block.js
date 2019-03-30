@@ -21,8 +21,8 @@ registerBlockType('fdd-block/recipe--page', {
 				<InnerBlocks
 					allowedBlocks={['fdd-block/recipe--text', 'fdd-block/recipe--media']}
 					template={[
-						['fdd-block/recipe--text'],
 						['fdd-block/recipe--media'],
+						['fdd-block/recipe--text'],
 					]}
 					templateLock="all"
 				/>
@@ -73,6 +73,7 @@ registerBlockType('fdd-block/recipe--text', {
 					template={[
 						['fdd-block/recipe--characteristics'],
 						['fdd-block/para-with-title', { title: 'Ingrediences' }],
+						['fdd-block/para-with-title', { title: 'Preparation' }],
 						['fdd-block/para-with-title', { title: 'Instructions' }],
 						['fdd-block/para-with-title', { title: 'Notes' }],
 					]}
@@ -106,7 +107,7 @@ registerBlockType('fdd-block/recipe--media', {
 			<div className="container">
 				<span className="oob">Add images and/or videos here:</span>
 				<InnerBlocks
-					allowedBlocks={['core/image', 'fdd-block/video-embed']}
+					allowedBlocks={['core/image', 'core/embed']}
 					templateLock={false}
 				/>
 			</div>

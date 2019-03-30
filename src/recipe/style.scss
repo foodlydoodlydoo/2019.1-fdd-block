@@ -9,16 +9,13 @@ $second-and-on-image-max-height: 10vh;
 $first-image-max-height: 60vh;
 
 .fdd-recipe--page { // [global]
-
   .fdd-recipe--text {
-
     .fdd-recipe--chars {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       padding: 3em 0;
       justify-content: space-between;
-
       div {
         width: 100%;
         padding: 1px 0;
@@ -34,7 +31,6 @@ $first-image-max-height: 60vh;
           color: royalblue;
         }
       }
-
       div::before {
         color: $base-fdd-text-color;
         font-weight: bold;
@@ -53,7 +49,6 @@ $first-image-max-height: 60vh;
       }
     }
   }
-
 } // .fdd-recipe--page [global]
 
 @mixin space-between-for-images {
@@ -76,6 +71,7 @@ $first-image-max-height: 60vh;
 }
 
 /* Wide screen */
+
 @media screen and (min-width: $fdd-wide-width-pixels) {
 
 .single__title {
@@ -83,20 +79,18 @@ $first-image-max-height: 60vh;
 }
 
 .fdd-recipe--page {
-
   .fdd-recipe--text {
     float: right;
     clear: right;
     width: 40%;
     padding: 0 $fdd-outer-padding-wide-screen 0 $fdd-inner-padding-wide-screen;
-
     .fdd-titled-para {
       margin-bottom: 4em;
-      &.two-columns {
+      &.is-style-two-columns {
         .fdd-titled-para__inner {
           ul, ol {
             columns: 12em 2;
-            column-gap: $fdd-outer-padding-small-screen;
+            column-gap: $fdd-outer-padding-small-screen * 2;
             li {
               break-inside: avoid;
             }
@@ -113,35 +107,34 @@ $first-image-max-height: 60vh;
     float: left;
     clear: left;
     width: 60%;
-    padding-left: $fdd-outer-padding-wide-screen;
+    padding-left: 0; //$fdd-outer-padding-wide-screen;
     padding-right: $fdd-inner-padding-wide-screen;
 
     // To align the images on the left with the header's top line
     // VERY ROUGH ESTIMATION!  Sensitive to change of the default text size in typography
-    margin-top: -32px;
+    margin-top: 18px;
     position: sticky;
-    top: $image-padding;
+    top: $image-padding; // * 2;
 
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
+    
     figure {
       min-width: 0;
       margin: 0;
-
       img {
         margin-bottom: $image-padding;
         display: block;
         padding-left: $image-padding / 2;
         padding-right: $image-padding / 2;
+        //padding-left: $image-padding;
+        //padding-right: 0;
         max-height: $second-and-on-image-max-height;
       }
     }
-
-    figure:first-child {
+    figure.wp-block-image:first-child {
       width: 100%;
-
       img {
         padding-left: 0;
         padding-right: 0;
@@ -149,8 +142,6 @@ $first-image-max-height: 60vh;
         margin-right: auto;
         display: block;
         max-width: 100%;
-        //max-width: $first-image-max-height * 4 / 3;
-        //max-width: 60%;
         max-height: $first-image-max-height;
         
         object-fit: cover;
@@ -158,6 +149,9 @@ $first-image-max-height: 60vh;
         object-position: 50% 50%;
         clear: both;
       }
+    }
+    figure.wp-block-embed.is-style-vertical:first-child {
+      width: 80%;
     }
   }
 }
@@ -169,6 +163,7 @@ $first-image-max-height: 60vh;
 
 
 /* Narrow screen */
+
 @media screen and (max-width: $fdd-wide-width-pixels - 1px) {
 
 .single__title {
@@ -176,27 +171,27 @@ $first-image-max-height: 60vh;
 }
 
 .fdd-recipe--page {
-
   .fdd-recipe--text {
     width: 100%;
     padding: 0 $fdd-outer-padding-small-screen;
-
     .fdd-titled-para {
       margin-bottom: 3em;
-
+      /*
       .fdd-titled-para__title {
         border-top: 1px $base-fdd-text-color solid;
       }
-
-      .fdd-titled-para__inner {
-        ul, ol {
-          columns: 18em 2;
-          column-gap: $fdd-outer-padding-small-screen;
-          li {
-            break-inside: avoid;
-          }
-          li:last-child {
-            padding-bottom: 3em;
+      */
+      &.is-style-two-columns {
+        .fdd-titled-para__inner {
+          ul, ol {
+            columns: 18em 2;
+            column-gap: $fdd-outer-padding-small-screen;
+            li {
+              break-inside: avoid;
+            }
+            li:last-child {
+              padding-bottom: 3em;
+            }
           }
         }
       }
@@ -206,13 +201,23 @@ $first-image-max-height: 60vh;
   .fdd-recipe--media {
     padding-left: $fdd-outer-padding-small-screen;
     padding-right: $fdd-outer-padding-small-screen;
-    img {
+    width: 100%;
+    display: inline-block;
+    img, figure.wp-block-embed {
       display: block;
       margin-left: auto;
       margin-right: auto;
       min-width: 0;
       max-width: 100%;
       max-height: 66vh;
+    }
+    figure.wp-block-embed {
+      width: 100%;
+      clear: both;
+      max-height: inherit;
+      &.is-style-vertical {
+        padding: 0;
+      }
     }
   }
 }
@@ -221,6 +226,7 @@ $first-image-max-height: 60vh;
 
 
 /* Narrow screen nits */
+
 @media screen and (max-width: 699px) {
 
 .fdd-recipe--page { // [global]

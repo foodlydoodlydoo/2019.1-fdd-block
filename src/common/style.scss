@@ -4,34 +4,44 @@
  * CSS for both Frontend+Backend.
  */
 
-.fdd-video-wrapper-inner {
-  position: relative;
-  width: 99.8%; // Workaround for Firefox black borders, shame on you F**kFox!
-  padding-top: 100%;
-}
 
-.fdd-video-wrapper-outer {
-  float: right;
-  width: 100%;
-  &.vertical {
-    width: 50%;
-    padding-right: $fdd-outer-padding-wide-screen;
-    .fdd-video-wrapper-inner {
-      padding-top: 150%;
+/*
+In case we ressurect fdd-block/video-embed rework classes as:
+
+.fdd-video-container, .fdd-recipe--media {
+  .fdd-video-wrapper-outer, figure.wp-block-embed {
+    .fdd-video-wrapper-inner, .wp-block-embed__wrapper {
+    }
+  }
+}
+*/
+
+.fdd-recipe--media {
+  figure.wp-block-embed {
+    float: left;
+    width: 100%;
+    .wp-block-embed__wrapper {
+      position: relative;
+      width: 99.8%; // Workaround for Firefox black borders, shame on you F**kfox!
+      padding-top: 100%;
+      iframe, object, embed {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        max-width: 100%;
+      }
     }
   }
 }
 
-.fdd-video-container iframe,
-.fdd-video-container object,
-.fdd-video-container embed {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-}
-
-embed, iframe, img, object, video {
-  max-width: 100%;
+.fdd-recipe--media {
+  figure.wp-block-embed.is-style-vertical {
+    width: 50%;
+    padding-right: $fdd-outer-padding-wide-screen;
+    .wp-block-embed__wrapper {
+      padding-top: 150%;
+    }
+  }
 }

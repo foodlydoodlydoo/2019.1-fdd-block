@@ -1,5 +1,6 @@
 const { InnerBlocks, PlainText } = wp.editor;
-const { registerBlockType } = wp.blocks;
+const { registerBlockType, registerBlockStyle } = wp.blocks;
+import domReady from '@wordpress/dom-ready';
 
 import './style.scss';
 import './editor.scss';
@@ -7,19 +8,40 @@ import './editor.scss';
 /********************************************************
  *   Embeding of a video
  ********************************************************/
+
+const fdd_embedingStyles = [
+  { name: '_default', label: 'Default', isDefault: true },
+  { name: 'vertical', label: 'Vertical' },
+];
+
+domReady(() => {
+  fdd_embedingStyles.forEach(style => {
+    registerBlockStyle('core-embed/youtube', style);
+    console.log(style);
+  });
+});
+
+/*
+
+// Removed in favor of core-embed/youtube
+
 registerBlockType('fdd-block/video-embed', {
   title: 'FDD: Video Block',
   icon: 'heart',
   category: 'common',
   useOnce: true,
   parent: [
-    'fdd-block/stepbystep--step-with-video', // TODO remove
     'fdd-block/recipe--media',
   ],
   attributes: {
   },
+  styles: fdd_embedingStyles,
 
-  edit() {
+  edit({ insertBlocksAfter }) {
+    if (!insertBlocksAfter) {
+      // https://github.com/WordPress/gutenberg/issues/9897#issuecomment-454390792
+      return <div className='fake-preview'></div>;
+    }
     return (
       <div className="container">
         Type in the &lt;iframe&gt; code for video:
@@ -44,6 +66,8 @@ registerBlockType('fdd-block/video-embed', {
   }
 });
 
+*/
+
 
 /********************************************************
  *   Subtitled paragraph
@@ -64,8 +88,16 @@ registerBlockType('fdd-block/para-with-title', {
   useOnce: true,
   parent: ['fdd-block/recipe--text'],
   attributes: paraWithTitleAttributes,
+  styles: [
+    { name: '_default', label: 'Default', isDefault: true },
+    { name: 'two-columns', label: 'Two Columns' },
+  ],
 
-  edit({ attributes, setAttributes }) {
+  edit({ attributes, setAttributes, insertBlocksAfter }) {
+    if (!insertBlocksAfter) {
+      // https://github.com/WordPress/gutenberg/issues/9897#issuecomment-454390792
+      return <div className='fake-preview'></div>;
+    }
     return (
       <div className="container">
         <PlainText
