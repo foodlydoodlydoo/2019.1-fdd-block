@@ -6,7 +6,7 @@
 
 $image-padding: 2vw;
 $second-and-on-image-max-height: 10vh;
-$first-image-max-height: 60vh;
+$first-image-max-height: 75vh;
 
 .fdd-recipe--page { // [global]
   .fdd-recipe--text {
@@ -70,7 +70,9 @@ $first-image-max-height: 60vh;
   }
 }
 
-/* Wide screen */
+/**********************************************************
+  Wide screen 
+ **********************************************************/
 
 @media screen and (min-width: $fdd-wide-width-pixels) {
 
@@ -90,7 +92,7 @@ $first-image-max-height: 60vh;
         .fdd-titled-para__inner {
           ul, ol {
             columns: 12em 2;
-            column-gap: $fdd-outer-padding-small-screen * 2;
+            column-gap: $fdd-outer-padding-narrow-screen * 2;
             li {
               break-inside: avoid;
             }
@@ -115,6 +117,7 @@ $first-image-max-height: 60vh;
     margin-top: 18px;
     position: sticky;
     top: $image-padding; // * 2;
+    top: 0;
 
     display: flex;
     flex-wrap: wrap;
@@ -141,11 +144,11 @@ $first-image-max-height: 60vh;
         margin-left: auto;
         margin-right: auto;
         display: block;
-        max-width: 100%;
+        width: 100%;
         max-height: $first-image-max-height;
         
-        object-fit: cover;
         object-fit: contain;
+        object-fit: cover;
         object-position: 50% 50%;
         clear: both;
       }
@@ -162,7 +165,9 @@ $first-image-max-height: 60vh;
 } // @media screen and (min-width: $fdd-wide-width-pixels)
 
 
-/* Narrow screen */
+/**********************************************************
+  Narrow screen
+ **********************************************************/
 
 @media screen and (max-width: $fdd-wide-width-pixels - 1px) {
 
@@ -173,7 +178,7 @@ $first-image-max-height: 60vh;
 .fdd-recipe--page {
   .fdd-recipe--text {
     width: 100%;
-    padding: 0 $fdd-outer-padding-small-screen;
+    padding: 0 $fdd-outer-padding-narrow-screen;
     .fdd-titled-para {
       margin-bottom: 3em;
       /*
@@ -185,7 +190,7 @@ $first-image-max-height: 60vh;
         .fdd-titled-para__inner {
           ul, ol {
             columns: 18em 2;
-            column-gap: $fdd-outer-padding-small-screen;
+            column-gap: $fdd-outer-padding-narrow-screen;
             li {
               break-inside: avoid;
             }
@@ -199,8 +204,8 @@ $first-image-max-height: 60vh;
   }
 
   .fdd-recipe--media {
-    padding-left: $fdd-outer-padding-small-screen;
-    padding-right: $fdd-outer-padding-small-screen;
+    padding-left: $fdd-outer-padding-narrow-screen;
+    padding-right: $fdd-outer-padding-narrow-screen;
     width: 100%;
     display: inline-block;
     img, figure.wp-block-embed {
@@ -225,9 +230,11 @@ $first-image-max-height: 60vh;
 } // @media screen and (max-width: $fdd-wide-width-pixels - 1px)
 
 
-/* Narrow screen nits */
+/**********************************************************
+  Super-narrow screen
+ **********************************************************/
 
-@media screen and (max-width: 699px) {
+@media screen and (max-width: $fdd-narrow-width-pixels - 1px) {
 
 .fdd-recipe--page { // [global]
   .fdd-recipe--text {
