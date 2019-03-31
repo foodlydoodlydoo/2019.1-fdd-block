@@ -67,12 +67,12 @@ $sBs-layout: dynamic-images-left;
   }
 
   .fdd-step-by-step--page figure img {
-    padding-left: $fdd-outer-padding-small-screen;
-    padding-right: $fdd-outer-padding-small-screen;
+    padding-left: $fdd-outer-padding-narrow-screen;
+    padding-right: $fdd-outer-padding-narrow-screen;
   }
 
   .fdd-step-by-step--page .fdd-image-container .fdd-step-by-step--step-description {
-    padding: 3em $fdd-outer-padding-small-screen;
+    padding: 3em $fdd-outer-padding-narrow-screen;
     background: $white-transparent;
   }
 
@@ -133,14 +133,14 @@ $sBs-layout: dynamic-images-left;
   @if false {
 
   .fdd-step-by-step--page figure img {
-    padding-left: $fdd-outer-padding-small-screen;
-    padding-right: $fdd-outer-padding-small-screen;
+    padding-left: $fdd-outer-padding-narrow-screen;
+    padding-right: $fdd-outer-padding-narrow-screen;
   }
 
   }
 
   .fdd-step-by-step--page .fdd-step-by-step--step-description {
-    padding: 3em $fdd-outer-padding-small-screen;
+    padding: 3em $fdd-outer-padding-narrow-screen;
     background: $white-transparent;
   }
 
@@ -210,14 +210,14 @@ $sBs-layout: dynamic-images-left;
   @if false {
 
   .fdd-step-by-step--page figure img {
-    padding-left: $fdd-outer-padding-small-screen;
-    padding-right: $fdd-outer-padding-small-screen;
+    padding-left: $fdd-outer-padding-narrow-screen;
+    padding-right: $fdd-outer-padding-narrow-screen;
   }
 
   }
 
   .fdd-step-by-step--page .fdd-step-by-step--step-description {
-    padding: 3em $fdd-outer-padding-small-screen;
+    padding: 3em $fdd-outer-padding-narrow-screen;
     background: $white-transparent;
   }
 

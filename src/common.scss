@@ -17,9 +17,11 @@ $base-fdd-text-color:    rgba(38,38,38,0.6);
 $fdd-title-color: black;
 
 $fdd-wide-width-pixels: 980px;
+$fdd-narrow-width-pixels: 700px;
+
 $fdd-outer-padding-wide-screen: 5%;
 $fdd-inner-padding-wide-screen: $fdd-outer-padding-wide-screen / 2;
-$fdd-outer-padding-small-screen: 5%;
+$fdd-outer-padding-narrow-screen: 5%;
 
 .block-editor span.oob {
   font-style: italic;
