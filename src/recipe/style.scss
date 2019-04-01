@@ -114,10 +114,9 @@ $first-image-max-height: 75vh;
 
     // To align the images on the left with the header's top line
     // VERY ROUGH ESTIMATION!  Sensitive to change of the default text size in typography
-    margin-top: 18px;
+    margin-top: 37px;
     position: sticky;
-    top: $image-padding; // * 2;
-    top: 0;
+    top: 50px;
 
     display: flex;
     flex-wrap: wrap;
@@ -148,7 +147,7 @@ $first-image-max-height: 75vh;
         max-height: $first-image-max-height;
         
         object-fit: contain;
-        object-fit: cover;
+        //object-fit: cover;
         object-position: 50% 50%;
         clear: both;
       }
