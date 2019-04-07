@@ -10,6 +10,7 @@ $first-image-max-height: 75vh;
 
 .fdd-recipe--page { // [global]
   .fdd-recipe--text {
+    @include font-home-page-title();
     .fdd-recipe--chars {
       display: flex;
       flex-wrap: wrap;
