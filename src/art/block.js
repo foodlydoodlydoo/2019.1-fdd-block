@@ -18,7 +18,11 @@ registerBlockType('fdd-block/art', {
 			<div className="container">
 				<InnerBlocks
 					allowedBlocks={['fdd-block/art--description-container', 'core/image']}
-					template={[['fdd-block/art--description-container'], ['core/image']]}
+					template={[
+						['core/image', { className: "featured" }],
+						['fdd-block/art--description-container'],
+						['core/image']
+					]}
 					templateLock={false}
 				/>
 			</div>
@@ -27,7 +31,7 @@ registerBlockType('fdd-block/art', {
 
 	save() {
 		return (
-			<div className="fdd-art--page fdd-image-container">
+			<div className="fdd-art--page">
 				<InnerBlocks.Content />
 			</div>
 		);
@@ -35,11 +39,11 @@ registerBlockType('fdd-block/art', {
 });
 
 
-registerBlockType('fdd-block/art--step-description-container', {
-	title: 'FDD: Art/Description',
-	icon: 'heart',
+registerBlockType('fdd-block/art--description-container', {
+	title: 'Art Text',
+	icon: 'editor-alignleft',
 	category: 'fdd-block-category',
-	parent: ['fdd-block/art--step-with-image'],
+	parent: ['fdd-block/art'],
 	attributes: {
 	},
 
@@ -54,8 +58,22 @@ registerBlockType('fdd-block/art--step-description-container', {
 	save() {
 		return (
 			<div className="fdd-art--description">
+				<div className="fdd-art--description-before"></div>
 				<InnerBlocks.Content />
+				<div className="fdd-art--description-after"></div>
 			</div>
 		);
-	}
+	},
+
+	deprecated: [
+		{
+			save() {
+				return (
+					<div className="fdd-art--description">
+						<InnerBlocks.Content />
+					</div>
+				);
+			},
+		},
+	]
 });
