@@ -4,6 +4,14 @@
  * CSS for both Frontend+Backend.
  */
 
+// [global]
+
+.category-food-art, .category-behind-the-scenes {
+  .single__title {
+    @include title__centered();
+  }
+}
+
 .fdd-art--page {
   width: 100%;
   display: flex;
@@ -59,4 +67,28 @@
       margin-top: $lines-inner-spacing;
     }
   }
+}
+
+// [/global]
+
+/**********************************************************
+  Narrow screen
+ **********************************************************/
+
+@media screen and (max-width: $fdd-wide-width-pixels - 1px) {
+
+}
+
+/**********************************************************
+  Super-narrow screen
+ **********************************************************/
+
+@media screen and (max-width: $fdd-narrow-width-pixels - 1px) {
+
+.fdd-art--page {
+  .fdd-art--description {
+    font-size: 16px;
+  }
+}
+
 }

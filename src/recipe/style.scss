@@ -76,8 +76,10 @@ $first-image-max-height: 75vh;
 
 @media screen and (min-width: $fdd-wide-width-pixels) {
 
-.single__title {
-  @include title__float_right()
+.category-recipes {
+  .single__title {
+    @include title__float_right()
+  }
 }
 
 .fdd-recipe--page {
@@ -170,8 +172,10 @@ $first-image-max-height: 75vh;
 
 @media screen and (max-width: $fdd-wide-width-pixels - 1px) {
 
-.single__title {
-  @include title__centered();
+.category-recipes {
+  .single__title {
+    @include title__centered();
+  }
 }
 
 .fdd-recipe--page {
