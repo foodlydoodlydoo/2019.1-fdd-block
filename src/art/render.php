@@ -6,7 +6,11 @@ if (!defined('ABSPATH')) {
 }
 
 function fdd_render_block__art($innerBlocks, $block, $attrs) {
-  return "<div class='fdd-art--page'>$innerBlocks</div>";
+  $content .= "<div class='fdd-art--page'>";
+  $content .= $innerBlocks;
+  $content .= "</div>";
+
+  return $content;
 }
 
 function fdd_render_block__art__description_container($innerBlocks, $block, $attrs) {
