@@ -17,7 +17,6 @@ const fdd_embedingStyles = [
 domReady(() => {
   fdd_embedingStyles.forEach(style => {
     registerBlockStyle('core-embed/youtube', style);
-    console.log(style);
   });
 });
 
