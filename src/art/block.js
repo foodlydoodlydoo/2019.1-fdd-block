@@ -30,12 +30,20 @@ registerBlockType('fdd-block/art', {
 	},
 
 	save() {
-		return (
-			<div className="fdd-art--page">
-				<InnerBlocks.Content />
-			</div>
-		);
-	}
+		return <InnerBlocks.Content />;
+	},
+
+	deprecated: [
+		{
+			save() {
+				return (
+					<div className="fdd-art--page">
+						<InnerBlocks.Content />
+					</div>
+				);
+			},
+		},
+	],
 });
 
 
@@ -56,16 +64,21 @@ registerBlockType('fdd-block/art--description-container', {
 	},
 
 	save() {
-		return (
-			<div className="fdd-art--description">
-				<div className="fdd-art--description-before"></div>
-				<InnerBlocks.Content />
-				<div className="fdd-art--description-after"></div>
-			</div>
-		);
+		return <InnerBlocks.Content />;
 	},
 
 	deprecated: [
+		{
+			save() {
+				return (
+					<div className="fdd-art--description">
+						<div className="fdd-art--description-before"></div>
+						<InnerBlocks.Content />
+						<div className="fdd-art--description-after"></div>
+					</div>
+				);
+			},
+		},
 		{
 			save() {
 				return (

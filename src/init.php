@@ -124,4 +124,5 @@ function fdd_render_block_frontend($content, $block) {
 add_action('render_block', 'fdd_render_block_frontend', 10, 2);
 
 require_once 'art/render.php';
+require_once 'common/render.php';
 require_once 'recipe/render.php';

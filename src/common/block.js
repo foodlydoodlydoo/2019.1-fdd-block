@@ -86,7 +86,12 @@ registerBlockType('fdd-block/para-with-title', {
   category: 'fdd-block-category',
   useOnce: true,
   parent: ['fdd-block/recipe--text'],
-  attributes: paraWithTitleAttributes,
+  attributes: {
+    title: {
+      type: 'string',
+      placeholder: 'Section Title',
+    },
+  },
   styles: [
     { name: '_default', label: 'Default', isDefault: true },
     { name: 'two-columns', label: 'Two Columns' },
@@ -114,19 +119,37 @@ registerBlockType('fdd-block/para-with-title', {
     );
   },
 
-  save({ className, attributes }) {
-    let classes = ["fdd-titled-para", className].join(" ");
-    return (
-      <div className={classes}>
-        <h3 className="fdd-titled-para__title">{attributes.title}</h3>
-        <div className="fdd-titled-para__inner"><InnerBlocks.Content /></div>
-      </div>
-    );
+  save() {
+    return <InnerBlocks.Content />;
   },
 
   deprecated: [
     {
-      attributes: paraWithTitleAttributes,
+      attributes: {
+        title: {
+          source: 'text',
+          selector: '.fdd-titled-para__title',
+          placeholder: 'Section Title',
+        },
+      },
+      save({ className, attributes }) {
+        let classes = ["fdd-titled-para", className].join(" ");
+        return (
+          <div className={classes}>
+            <h3 className="fdd-titled-para__title">{attributes.title}</h3>
+            <div className="fdd-titled-para__inner"><InnerBlocks.Content /></div>
+          </div>
+        );
+      },
+    },
+    {
+      attributes: {
+        title: {
+          source: 'text',
+          selector: '.fdd-titled-para__title',
+          placeholder: 'Section Title',
+        },
+      },
       save({ className, attributes }) {
         let classes = ["fdd-titled-para", className].join(" ");
         return (
@@ -136,7 +159,7 @@ registerBlockType('fdd-block/para-with-title', {
           </div>
         );
       },
-    }
+    },
   ]
 
 });
