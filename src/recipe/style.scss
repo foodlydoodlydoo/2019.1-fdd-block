@@ -25,6 +25,7 @@ $first-image-max-height: 75vh;
       div {
         width: 100%;
         padding: 2px 0; // was 1px!
+        font-weight: bold;
       }
       div.fdd-recipe--chars--level {
         &.easy {
@@ -36,7 +37,7 @@ $first-image-max-height: 75vh;
       }
       div::before {
         color: $base-fdd-text-color;
-        font-weight: bold;
+        font-weight: normal;
       }
       .fdd-recipe--chars--level::before {
         content: "Level: ";
