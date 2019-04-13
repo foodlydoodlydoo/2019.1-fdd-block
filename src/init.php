@@ -65,18 +65,6 @@ function fdd_block_cgb_editor_assets() {
 // Hook: Editor assets.
 add_action('enqueue_block_editor_assets', 'fdd_block_cgb_editor_assets');
 
-// mhm: this is for registry of dynamic content, we don't need it now!
-function fdd_block_register_blocks() {
-  // see: https://www.ibenic.com/enable-inner-blocks-gutenberg/
-  if (0) {
-    register_block_type('fdd-block/<blockname>', array(
-      'render_callback' => 'fdd_block_<blockname>_render_content',
-    ));
-  }
-}
-
-add_action('init', 'fdd_block_register_blocks');
-
 // FDD blocks category
 
 function fdd_blocks_categories($categories, $post) {
@@ -95,3 +83,45 @@ function fdd_blocks_categories($categories, $post) {
   );
 }
 add_filter('block_categories', 'fdd_blocks_categories', 10, 2);
+
+// FDD render hooks
+
+// see: https://www.ibenic.com/enable-inner-blocks-gutenberg/
+//function fdd_block_register_blocks() {
+//  register_block_type('fdd-block/recipe--characteristics', [
+//    'render_callback' => 'fdd_render_callback_frontend_recipe__characteristics',
+//  ]);
+//}
+//add_action('init', 'fdd_block_register_blocks');
+
+//function fdd_collect_innerblocks($block) {
+//  if (!array_key_exists('innerBlocks', $block)) {
+//    return '';
+//  }
+//
+//  $content = '';
+//  $innerBlocks = $block['innerBlocks'];
+//  foreach ($innerBlocks as $innerBlock) {
+//    $content .= $innerBlock['innerHTML'];
+//    $content .= fdd_collect_innerblocks($innerBlock, $content);
+//  }
+//
+//  return $content;
+//}
+
+function fdd_render_block_frontend($content, $block) {
+  $is_fdd_block = preg_match('/^fdd-block\/(.*)/', $block['blockName'], $match);
+  if ($is_fdd_block) {
+    $fdd_block = $match[1];
+    $fdd_block_render_fuction = "fdd_render_block__" . str_replace('-', '_', $fdd_block);
+    if (is_callable($fdd_block_render_fuction)) {
+      $content = call_user_func($fdd_block_render_fuction, $content, $block, $block['attrs']);
+    }
+  }
+
+  return $content;
+}
+add_action('render_block', 'fdd_render_block_frontend', 10, 2);
+
+require_once 'art/render.php';
+require_once 'recipe/render.php';

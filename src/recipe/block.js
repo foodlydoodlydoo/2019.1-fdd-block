@@ -36,13 +36,21 @@ registerBlockType('fdd-block/recipe--page', {
 	},
 
 	save() {
-		return (
-			<div className="fdd-recipe--page">
-				<InnerBlocks.Content />
-				<div className="fdd-heel"></div>
-			</div>
-		);
+		return <InnerBlocks.Content />;
 	},
+
+	deprecated: [
+		{
+			save() {
+				return (
+					<div className="fdd-recipe--page">
+						<InnerBlocks.Content />
+						<div className="fdd-heel"></div>
+					</div>
+				);
+			},
+		},
+	],
 });
 
 
@@ -75,12 +83,20 @@ registerBlockType('fdd-block/recipe--text', {
 	},
 
 	save() {
-		return (
-			<div className="fdd-recipe--text">
-				<InnerBlocks.Content />
-			</div>
-		);
-	}
+		return <InnerBlocks.Content />;
+	},
+
+	deprecated: [
+		{
+			save() {
+				return (
+					<div className="fdd-recipe--text">
+						<InnerBlocks.Content />
+					</div>
+				);
+			}
+		},
+	],
 });
 
 
@@ -106,12 +122,21 @@ registerBlockType('fdd-block/recipe--media', {
 	},
 
 	save() {
-		return (
-			<div className="fdd-recipe--media">
-				<InnerBlocks.Content />
-			</div>
-		);
-	}
+		return <InnerBlocks.Content />;
+	},
+
+	deprecated: [
+		{
+			attributes: {},
+			save() {
+				return (
+					<div className="fdd-recipe--media">
+						<InnerBlocks.Content />
+					</div>
+				);
+			},
+		},
+	],
 });
 
 /********************************************************
@@ -125,20 +150,16 @@ registerBlockType('fdd-block/recipe--characteristics', {
 	parent: ['fdd-block/recipe--text'],
 	attributes: {
 		level: {
-			source: 'text',
-			selector: '.fdd-recipe--chars--level',
+			type: 'string',
 		},
 		prep_time: {
-			source: 'text',
-			selector: '.fdd-recipe--chars--prep_time',
+			type: 'string',
 		},
 		cook_time: {
-			source: 'text',
-			selector: '.fdd-recipe--chars--cook_time',
+			type: 'string',
 		},
 		portions: {
-			source: 'text',
-			selector: '.fdd-recipe--chars--portions',
+			type: 'string',
 		},
 	},
 
@@ -170,30 +191,41 @@ registerBlockType('fdd-block/recipe--characteristics', {
 		);
 	},
 
-	save({ attributes }) {
-		let levelClass = ["fdd-recipe--chars--level", attributes.level.toLowerCase()].join(" ");
-		return (
-			<div className="fdd-recipe--chars">
-				<div className={levelClass}>{attributes.level}</div>
-				<div className="fdd-recipe--chars--prep_time">{attributes.prep_time}</div>
-				<div className="fdd-recipe--chars--cook_time">{attributes.cook_time}</div>
-				<div className="fdd-recipe--chars--portions">{attributes.portions}</div>
-			</div>
-		);
+	save() {
+		return null;
 	},
 
 	deprecated: [
 		{
+			attributes: {
+				level: {
+					source: 'text',
+					selector: '.fdd-recipe--chars--level',
+				},
+				prep_time: {
+					source: 'text',
+					selector: '.fdd-recipe--chars--prep_time',
+				},
+				cook_time: {
+					source: 'text',
+					selector: '.fdd-recipe--chars--cook_time',
+				},
+				portions: {
+					source: 'text',
+					selector: '.fdd-recipe--chars--portions',
+				},
+			},
 			save({ attributes }) {
+				let levelClass = ["fdd-recipe--chars--level", attributes.level.toLowerCase()].join(" ");
 				return (
 					<div className="fdd-recipe--chars">
-						<div className="fdd-recipe--chars--level">{attributes.level}</div>
+						<div className={levelClass}>{attributes.level}</div>
 						<div className="fdd-recipe--chars--prep_time">{attributes.prep_time}</div>
 						<div className="fdd-recipe--chars--cook_time">{attributes.cook_time}</div>
 						<div className="fdd-recipe--chars--portions">{attributes.portions}</div>
 					</div>
 				);
-			}
-		}
+			},
+		},
 	]
 });

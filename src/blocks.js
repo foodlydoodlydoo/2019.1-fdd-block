@@ -13,6 +13,8 @@ import './common/block.js';
 import './art/block.js';
 import './recipe/block.js';
 
+// Don't forget to update init.php to add new php render code
+
 wp.hooks.addFilter(
   'blocks.registerBlockType',
   'fdd-blocks/common/registerBlockType_hook',
