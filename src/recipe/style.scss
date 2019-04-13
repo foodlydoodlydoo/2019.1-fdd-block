@@ -95,7 +95,7 @@ $first-image-max-height: 75vh;
         .fdd-titled-para__inner {
           ul, ol {
             columns: 12em 2;
-            column-gap: $fdd-outer-padding-narrow-screen * 2;
+            column-gap: 32px;
             li {
               break-inside: avoid;
             }
