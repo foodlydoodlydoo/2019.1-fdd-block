@@ -10,21 +10,23 @@ $first-image-max-height: 75vh;
 
 .fdd-recipe--page { // [global]
   .fdd-recipe--text {
+    .fdd-recipe--excerpt {
+      line-height: 1.7;
+      @include font-italic-serif();
+      color: $fdd-title-color;
+    }
     @include base-font-family-set();
     .fdd-recipe--chars {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      padding: 3em 0;
+      padding: 4em 0 3em;
       justify-content: space-between;
       div {
         width: 100%;
-        padding: 1px 0;
-        //text-align: center;
+        padding: 2px 0; // was 1px!
       }
       div.fdd-recipe--chars--level {
-        //width: 100%;
-        //text-align: center;
         &.easy {
           color: green;
         }
@@ -81,6 +83,9 @@ $first-image-max-height: 75vh;
   .single__title {
     @include title__float_right()
   }
+  .single__excerpt {
+    display: none;
+  }
 }
 
 .fdd-recipe--page {
@@ -89,6 +94,15 @@ $first-image-max-height: 75vh;
     clear: right;
     width: 40%;
     padding: 0 $fdd-outer-padding-wide-screen 0 $fdd-inner-padding-wide-screen;
+    .fdd-recipe--excerpt {
+      font-size: 27px;
+    }
+    .fdd-recipe--excerpt--after {
+      width: 5em;
+      height: 1px;
+      background-color: $base-fdd-text-color;
+      display: inline-block;
+    }
     .fdd-titled-para {
       margin-bottom: 4em;
       &.is-style-two-columns {
@@ -174,8 +188,11 @@ $first-image-max-height: 75vh;
 @media screen and (max-width: $fdd-wide-width-pixels - 1px) {
 
 .category-recipes {
-  .single__title {
+  .single__title, .single__excerpt {
     @include title__centered();
+  }
+  .single__excerpt {
+    padding: 0 20% 1em;
   }
 }
 
@@ -183,6 +200,9 @@ $first-image-max-height: 75vh;
   .fdd-recipe--text {
     width: 100%;
     padding: 0 $fdd-outer-padding-narrow-screen;
+    .fdd-recipe--excerpt, .fdd-recipe--excerpt--after {
+      display: none;
+    }
     .fdd-titled-para {
       margin-bottom: 3em;
       /*

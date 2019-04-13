@@ -6,15 +6,31 @@ if (!defined('ABSPATH')) {
 }
 
 function fdd_render_block__recipe__page($innerBlocks, $block, $attrs) {
-  return "<div class='fdd-recipe--page'>$innerBlocks<div class='fdd-heel'></div></div>";
+  $content .= "<div class='fdd-recipe--page'>";
+  $content .= $innerBlocks;
+  $content .= "<div class='fdd-heel'></div></div>";
+
+  return $content;
 }
 
 function fdd_render_block__recipe__text($innerBlocks, $block, $attrs) {
-  return "<div class='fdd-recipe--text'>$innerBlocks</div>";
+  $excerpt = get_the_excerpt();
+
+  $content .= "<div class='fdd-recipe--text'>";
+  $content .= "<div class='fdd-recipe--excerpt'>$excerpt</div>";
+  $content .= "<div class='fdd-recipe--excerpt--after'></div>";
+  $content .= $innerBlocks;
+  $content .= "</div>";
+
+  return $content;
 }
 
 function fdd_render_block__recipe__media($innerBlocks, $block, $attrs) {
-  return "<div class='fdd-recipe--media'>$innerBlocks</div>";
+  $content .= "<div class='fdd-recipe--media'>";
+  $content .= $innerBlocks;
+  $content .= "</div>";
+
+  return $content;
 }
 
 function fdd_render_block__recipe__characteristics($innerBlocks, $block, $attrs) {

@@ -6,12 +6,6 @@
 
 // [global]
 
-.category-food-art, .category-behind-the-scenes {
-  .single__title {
-    @include title__centered();
-  }
-}
-
 .fdd-art--page {
   width: 100%;
   display: flex;
@@ -22,7 +16,7 @@
     line-height: 0;
     width: 100%;
     display: flex;
-    margin: 3em 0;
+    margin: $fdd-outer-padding-wide-screen 0 $fdd-outer-padding-wide-screen * 1.2 0;
     a {
       margin-left: auto;
       margin-right: auto;
@@ -52,7 +46,7 @@
     }
 
     font-size: 21px;
-    padding: 1em 0;
+    padding: 0 0 $fdd-outer-padding-wide-screen * 0.2 0;
     line-height: 2;
     width: 60%;
     @include description-layout();
@@ -75,10 +69,54 @@
 // [/global]
 
 /**********************************************************
+  Wide screen 
+ **********************************************************/
+
+@media screen and (min-width: $fdd-wide-width-pixels) {
+
+.category-food-art, .category-behind-the-scenes {
+  header {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    .single__title {
+      display: block;
+      width: calc(50%);
+      text-align: right;
+      margin: 0;
+      padding: 0 0 0 $fdd-outer-padding-wide-screen;
+    }
+    .single__excerpt {
+      width: 100%;
+      width: calc(50% - 2rem);
+      text-align: left;
+      padding: 0 15% 0 0;
+    }
+  }
+}
+
+}
+
+/**********************************************************
   Narrow screen
  **********************************************************/
 
 @media screen and (max-width: $fdd-wide-width-pixels - 1px) {
+
+.category-food-art, .category-behind-the-scenes {
+  header {
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    padding: 0 $fdd-outer-padding-narrow-screen;
+    .single__title {
+      display: block;
+      width: 100%;
+    }
+  }
+}
 
 }
 
