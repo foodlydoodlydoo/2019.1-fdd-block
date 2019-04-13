@@ -34,7 +34,7 @@
     }
   }
   .fdd-art--description {
-    @include font-home-page-title();
+    @include base-font-family-set();
 
     $layout: centered;
     @mixin description-layout($margin-left: false) {
