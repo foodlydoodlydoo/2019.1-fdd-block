@@ -4,9 +4,16 @@
  * CSS for both Frontend+Backend.
  */
 
-$image-padding: 2vw;
-$second-and-on-image-max-height: 10vh;
-$first-image-max-height: 75vh;
+$recipe-content-top-padding: 65px;
+// if equal to `$recipe-content-top-padding` then it seems like just the menu is hidden
+$recipe-media-top-sticky-offset: 50px;
+// To align the images on the left with the header's top line
+// VERY ROUGH ESTIMATION!  Sensitive to change of the default text size in typography
+$recipe-media-text-align-offset: 37px;
+$recipe-show-pretitle-border: false;
+$recipe-image-padding: 2vw;
+$recipe-first-image-max-height: 65vh;
+$recipe-second-and-on-image-max-height: 10vh;
 
 .fdd-recipe--page { // [global]
   .fdd-recipe--text {
@@ -40,19 +47,28 @@ $first-image-max-height: 75vh;
       }
     }
   }
+  .fdd-recipe--media {
+    figure {
+      display: flex;
+      a {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
 } // .fdd-recipe--page [global]
 
 @mixin space-between-for-images {
   .fdd-recipe--page {
     .fdd-recipe--media {
       justify-content: space-between;
-      margin-left: -$image-padding / 2;
-      margin-right: -$image-padding / 2;
+      margin-left: -$recipe-image-padding / 2;
+      margin-right: -$recipe-image-padding / 2;
       padding-right: 0;
 
       figure {
-        margin-left: $image-padding / 2;
-        margin-right: $image-padding / 2;
+        margin-left: $recipe-image-padding / 2;
+        margin-right: $recipe-image-padding / 2;
         img {
           padding: 0;
         }
@@ -68,6 +84,21 @@ $first-image-max-height: 75vh;
 @media screen and (min-width: $fdd-wide-width-pixels) {
 
 .category-recipes {
+  header {
+    position: relative;
+  }
+  padding-top: $recipe-content-top-padding - $recipe-media-text-align-offset;
+  @if ($recipe-show-pretitle-border) {
+    .single__pre_title {
+      width: calc(40% - 5vw);
+      height: 6px;
+      background: black;
+      position: absolute;
+      top: 0px - $recipe-content-top-padding + $recipe-media-text-align-offset;
+      right: 2.5vw;
+      font-size: 47px;
+    }
+  }
   .single__title {
     @include title__float_right()
   }
@@ -117,11 +148,9 @@ $first-image-max-height: 75vh;
     padding-left: 0; //$fdd-outer-padding-wide-screen;
     padding-right: $fdd-inner-padding-wide-screen;
 
-    // To align the images on the left with the header's top line
-    // VERY ROUGH ESTIMATION!  Sensitive to change of the default text size in typography
-    margin-top: 37px;
+    margin-top: $recipe-media-text-align-offset;
     position: sticky;
-    top: 50px;
+    top: $recipe-media-top-sticky-offset;
 
     display: flex;
     flex-wrap: wrap;
@@ -129,15 +158,14 @@ $first-image-max-height: 75vh;
     
     figure {
       min-width: 0;
-      margin: 0;
+      margin: 0 0 $recipe-image-padding 0;
+      //padding-left: $recipe-image-padding;
+      //padding-right: 0;
+      padding-left: $recipe-image-padding / 2;
+      padding-right: $recipe-image-padding / 2;
       img {
-        margin-bottom: $image-padding;
         display: block;
-        padding-left: $image-padding / 2;
-        padding-right: $image-padding / 2;
-        //padding-left: $image-padding;
-        //padding-right: 0;
-        max-height: $second-and-on-image-max-height;
+        max-height: $recipe-second-and-on-image-max-height;
       }
     }
     figure.wp-block-image:first-child {
@@ -149,7 +177,7 @@ $first-image-max-height: 75vh;
         margin-right: auto;
         display: block;
         width: 100%;
-        max-height: $first-image-max-height;
+        max-height: $recipe-first-image-max-height;
         
         object-fit: contain;
         //object-fit: cover;
