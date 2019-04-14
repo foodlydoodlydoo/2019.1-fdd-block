@@ -23,33 +23,20 @@ $first-image-max-height: 75vh;
       padding: 4em 0 3em;
       justify-content: space-between;
       div {
+        color: $base-fdd-text-color;
         width: 100%;
         padding: 2px 0; // was 1px!
-        font-weight: bold;
+        .value {
+          font-weight: bold;
+        }
       }
       div.fdd-recipe--chars--level {
-        &.easy {
+        &.easy > .value {
           color: green;
         }
-        &.expert {
+        &.expert > .value {
           color: royalblue;
         }
-      }
-      div::before {
-        color: $base-fdd-text-color;
-        font-weight: normal;
-      }
-      .fdd-recipe--chars--level::before {
-        content: "Level: ";
-      }
-      .fdd-recipe--chars--prep_time::before {
-        content: "Prep Time: ";
-      }
-      .fdd-recipe--chars--cook_time::before {
-        content: "Cook Time: ";
-      }
-      .fdd-recipe--chars--portions::before {
-        content: "Portions: ";
       }
     }
   }

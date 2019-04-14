@@ -41,10 +41,10 @@ function fdd_render_block__recipe__characteristics($innerBlocks, $block, $attrs)
   $portions = $attrs['portions'];
 
   $content .= "<div class='fdd-recipe--chars'>";
-  $content .= "<div class='fdd-recipe--chars--level $level_class'>$level</div>";
-  $content .= "<div class='fdd-recipe--chars--prep_time'>$prep_time</div>";
-  $content .= "<div class='fdd-recipe--chars--cook_time'>$cook_time</div>";
-  $content .= "<div class='fdd-recipe--chars--portions'>$portions</div>";
+  $content .= "<div class='fdd-recipe--chars--level $level_class'>Level: <span class='value'>$level</span></div>";
+  $content .= "<div class='fdd-recipe--chars--prep_time'>Prep Time: <span class='value'>$prep_time</span></div>";
+  $content .= "<div class='fdd-recipe--chars--cook_time'>Cook Time: <span class='value'>$cook_time</span></div>";
+  $content .= "<div class='fdd-recipe--chars--portions'>Portions: <span class='value'>$portions</span></div>";
   $content .= "</div>";
 
   return $content;
