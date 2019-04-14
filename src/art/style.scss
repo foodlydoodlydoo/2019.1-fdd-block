@@ -88,9 +88,13 @@
       margin: 0;
       padding: 0 0 0 $fdd-outer-padding-wide-screen;
     }
+    .single__title_excerpt_div {
+      width: 1px;
+      background: $base-fdd-text-color;
+      height: 35px;
+    }
     .single__excerpt {
-      width: 100%;
-      width: calc(50% - 2rem);
+      width: calc(50% - 3rem);
       text-align: left;
       padding: 0 15% 0 0;
     }
