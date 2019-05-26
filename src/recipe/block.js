@@ -139,9 +139,6 @@ registerBlockType('fdd-block/recipe--media', {
 	],
 });
 
-/********************************************************
- *   Recipe/Text specific blocks
- ********************************************************/
 registerBlockType('fdd-block/recipe--characteristics', {
 	title: 'Recipe Characteristics',
 	icon: 'admin-settings',
