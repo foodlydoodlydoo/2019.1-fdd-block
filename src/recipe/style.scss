@@ -200,6 +200,30 @@ $recipe-second-and-on-image-max-height: 10vh;
 
 
   /**********************************************************
+  Too high screen
+  **********************************************************/
+
+  // 1477px = 960px (fdd-640 height for portrait) / 65vh
+  @media screen and (min-height: 1477px) {
+
+    .fdd-recipe--media {
+      figure.wp-block-image {
+        img {
+          max-height: 160px;
+          min-height: 160px;
+        }
+      }
+      figure.wp-block-image:first-child {
+        img {
+          max-height: 960px !important;
+          min-height: 960px;
+        }
+      }
+    }
+
+  }
+
+  /**********************************************************
     Narrow screen
   **********************************************************/
 
