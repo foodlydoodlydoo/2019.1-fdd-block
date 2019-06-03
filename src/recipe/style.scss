@@ -40,10 +40,13 @@ $recipe-second-and-on-image-max-height: 10vh;
           }
         }
         div.fdd-recipe--chars--level {
-          &.easy > .value {
+          &.fdd-recipe-level-easy > .value {
             color: green;
           }
-          &.expert > .value {
+          &.fdd-recipe-level-medium > .value {
+            color: brown;
+          }
+          &.fdd-recipe-level-expert > .value {
             color: royalblue;
           }
         }

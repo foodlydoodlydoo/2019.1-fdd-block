@@ -35,7 +35,7 @@ function fdd_render_block__recipe__media($innerBlocks, $block, $attrs) {
 
 function fdd_render_block__recipe__characteristics($innerBlocks, $block, $attrs) {
   $level = $attrs['level'];
-  $level_class = strtolower($level);
+  $level_class = 'fdd-recipe-level-' . strtolower($level);
   $prep_time = $attrs['prep_time'];
   $cook_time = $attrs['cook_time'];
   $portions = $attrs['portions'];
