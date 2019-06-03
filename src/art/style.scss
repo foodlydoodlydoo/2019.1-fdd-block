@@ -79,7 +79,9 @@
   .category-food-art, .category-behind-the-scenes {
     header {
       display: flex;
-      width: 100%;
+      width: 65%;
+      margin-left: auto;
+      margin-right: auto;
       flex-wrap: wrap;
       align-items: baseline;
       justify-content: space-between;
@@ -94,7 +96,8 @@
       .single__title_excerpt_div {
         width: 1px;
         background: $base-fdd-text-color;
-        height: 35px;
+        height: 75px;
+        align-self: center;
       }
       .single__excerpt {
         width: calc(50% - 2rem); // - 3rem --''--
