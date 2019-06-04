@@ -171,6 +171,7 @@ $recipe-second-and-on-image-max-height: 10vh;
         img {
           display: block;
           max-height: $recipe-second-and-on-image-max-height;
+          min-height: $recipe-second-and-on-image-max-height;
         }
       }
       figure.wp-block-image:first-child {
