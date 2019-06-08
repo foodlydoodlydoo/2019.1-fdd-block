@@ -55,7 +55,8 @@
       &-before, &-after {
         @include description-layout(0);
         height: 1px;
-        width: 9%;
+        max-width: 9%;
+        min-width: 80px;
         background-color: $base-fdd-text-color;
       }
       $lines-inner-spacing: 20px;
@@ -125,6 +126,17 @@
         display: block;
         width: 100%;
       }
+    }
+  }
+
+  $items-padding: 50px;
+
+  .fdd-art--page {
+    figure {
+      margin: $items-padding 0 $items-padding * 1.2 0;
+    }
+    .fdd-art--description {
+      padding-bottom: $items-padding * 0.2;
     }
   }
 
