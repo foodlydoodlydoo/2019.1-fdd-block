@@ -10,8 +10,6 @@ function fdd_render_block__art($innerBlocks, $block, $attrs) {
   $content .= $innerBlocks;
   $content .= "</div>";
 
-  $content .= file_get_contents(plugins_url('/common/_photoswipe.php', dirname(__FILE__)));
-
   return $content;
 }
 

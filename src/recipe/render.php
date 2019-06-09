@@ -10,8 +10,6 @@ function fdd_render_block__recipe__page($innerBlocks, $block, $attrs) {
   $content .= $innerBlocks;
   $content .= "<div class='fdd-heel'></div></div>";
 
-  $content .= file_get_contents(plugins_url('/common/_photoswipe.php', dirname(__FILE__)));
-
   return $content;
 }
 
