@@ -72,14 +72,6 @@ registerBlockType('fdd-block/video-embed', {
  *   Subtitled paragraph
  ********************************************************/
 
-const paraWithTitleAttributes = {
-  title: {
-    source: 'text',
-    selector: '.fdd-titled-para__title',
-    placeholder: 'Section Title',
-  },
-};
-
 registerBlockType('fdd-block/para-with-title', {
   title: 'Titled paragraph',
   icon: 'editor-table',
@@ -109,7 +101,7 @@ registerBlockType('fdd-block/para-with-title', {
           value={attributes.title}
         />
         <InnerBlocks
-          allowedBlocks={['core/paragraph']}
+          allowedBlocks={['core/paragraph', 'core/list']}
           template={[
             ['core/paragraph', { placeholder: '...' }],
           ]}
