@@ -16,10 +16,14 @@ registerBlockType('fdd-block/recipe--page', {
 	},
 
 	edit() {
+		/*
+		// This hack causes refocus when the outer (document?) block is selected for editing.
+
 		setTimeout(() => {
 			// https://github.com/WordPress/gutenberg/issues/6687#issuecomment-468294328
 			$("#fdd-editor-focus-first").focus();
 		}, 500);
+		*/
 
 		return (
 			<div className="container">
