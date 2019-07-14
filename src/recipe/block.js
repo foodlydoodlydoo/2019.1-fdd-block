@@ -118,7 +118,7 @@ registerBlockType('fdd-block/recipe--media', {
 			<div className="container">
 				<span className="oob">Add images and/or videos here:</span>
 				<InnerBlocks
-					allowedBlocks={['core/image', 'core/embed']}
+					allowedBlocks={['core/image', 'core-embed/youtube']}
 					templateLock={false}
 				/>
 			</div>
