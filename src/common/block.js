@@ -16,6 +16,7 @@ const fdd_embedingStyles = [
   { name: 'horiz-4-266', label: 'Horizontal 4:2.66' },
   { name: 'horiz-16-10', label: 'Horizontal 16:10' },
   { name: 'horiz-16-9', label: 'Horizontal 16:9' },
+  { name: 'vertical-16-902', label: 'Vertical 16:9.02' },
   { name: 'vertical-16-9', label: 'Vertical 16:9' },
   { name: 'vertical-16-844', label: 'Vertical 16:8.44' },
 ];

@@ -7,10 +7,11 @@
 .fdd-recipe--media, .fdd-art--page {
   figure.wp-block-embed {
     float: left;
+    width: 100%; // default value, override with block-style!
     .wp-block-embed__wrapper {
       position: relative;
       width: 100%;
-      padding-top: 10%; // this is a fallback for undefined ratio style, make visible it's broken!
+      padding-top: 100%; // default value, override with block-style!
       iframe, object, embed {
         position: absolute;
         top: 0;
@@ -58,6 +59,9 @@ figure.wp-block-embed.is-style-horiz-16-10 {
 }
 
 // Vertical
+figure.wp-block-embed.is-style-vertical-16-902 {
+  @include embed-responsive-style(9.02, 16);
+}
 figure.wp-block-embed.is-style-vertical-16-9 {
   @include embed-responsive-style(9, 16);
 }
