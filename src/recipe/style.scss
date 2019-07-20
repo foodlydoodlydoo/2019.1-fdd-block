@@ -238,7 +238,9 @@ $recipe-second-and-on-image-max-height: 10vh;
       @include title__centered();
     }
     .single__excerpt {
-      padding: 0 20% 1em;
+      padding: 0 15% 1em;
+      margin-bottom: 1.5em;
+      border-bottom: 1px solid $header-bottom-line-color-on-home;
     }
   }
 
