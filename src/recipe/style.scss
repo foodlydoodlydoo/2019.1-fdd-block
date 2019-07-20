@@ -278,13 +278,16 @@ $recipe-second-and-on-image-max-height: 10vh;
       padding-right: $fdd-outer-padding-narrow-screen;
       width: 100%;
       display: inline-block;
+      figure:not(:last-child) {
+        margin-bottom: 10vh;
+      }
       img, figure.wp-block-embed {
         display: block;
         margin-left: auto;
         margin-right: auto;
         min-width: 0;
         max-width: 100%;
-        max-height: 66vh;
+        max-height: 80vh; // function of sizes_attribute_hook -> 'recipes' mode for this screen width and portrait
       }
       figure.wp-block-embed {
         width: 100%;
