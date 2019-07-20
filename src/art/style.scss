@@ -31,7 +31,9 @@
     }
     .fdd-art--description {
       @include base-font-family-set();
-
+      a {
+        text-decoration: underline;
+      }
       $layout: centered;
       @mixin description-layout($margin-left: false) {
         @if ($layout == centered) {

@@ -19,6 +19,9 @@ $recipe-second-and-on-image-max-height: 10vh;
 
   .fdd-recipe--page { // [global]
     .fdd-recipe--text {
+      a {
+        text-decoration: underline;
+      }
       .fdd-recipe--excerpt {
         line-height: 1.7;
         @include font-italic-serif();
