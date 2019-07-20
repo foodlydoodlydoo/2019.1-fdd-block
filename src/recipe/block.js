@@ -16,15 +16,6 @@ registerBlockType('fdd-block/recipe--page', {
 	},
 
 	edit() {
-		/*
-		// This hack causes refocus when the outer (document?) block is selected for editing.
-
-		setTimeout(() => {
-			// https://github.com/WordPress/gutenberg/issues/6687#issuecomment-468294328
-			$("#fdd-editor-focus-first").focus();
-		}, 500);
-		*/
-
 		return (
 			<div className="container">
 				<InnerBlocks
@@ -75,7 +66,7 @@ registerBlockType('fdd-block/recipe--text', {
 					allowedBlocks={['fdd-block/para-with-title']}
 					template={[
 						['fdd-block/recipe--characteristics'],
-						['fdd-block/para-with-title', { title: 'Ingrediences' }],
+						['fdd-block/para-with-title', { title: 'Ingrediences', className: 'is-style-two-columns' }],
 						['fdd-block/para-with-title', { title: 'Preparation' }],
 						['fdd-block/para-with-title', { title: 'Instructions' }],
 						['fdd-block/para-with-title', { title: 'Notes' }],
