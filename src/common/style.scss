@@ -22,20 +22,6 @@
   }
 }
 
-figure.wp-block-embed.is-style-default {
-  width: 100%;
-  color: red;
-  border: 10px solid;
-  text-align: center;
-  &:before, &:after {
-    font-size: 20px;
-    content: 'Set style on me, please!';
-  }
-  .wp-block-embed__wrapper {
-    padding-top: 25%;
-  }
-}
-
 /**
  * Embed aspect ratio styling corresponding to fdd_embedingStyles in ./block.js
  */
