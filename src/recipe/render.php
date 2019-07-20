@@ -28,6 +28,7 @@ function fdd_render_block__recipe__text($innerBlocks, $block, $attrs) {
 function fdd_render_block__recipe__media($innerBlocks, $block, $attrs) {
   $content .= "<div class='fdd-recipe--media'>";
   $content .= $innerBlocks;
+  $content .= "<div class='fdd-heel'></div>";
   $content .= "</div>";
 
   return $content;

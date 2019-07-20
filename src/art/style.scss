@@ -12,9 +12,10 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-items: center;
+    flex-flow: column;
     padding: 0 $fdd-outer-padding-wide-screen;
-    figure {
+
+    figure.wp-block-image {
       line-height: 0;
       width: 100%;
       display: flex;
@@ -29,6 +30,10 @@
         }
       }
     }
+    figure.wp-block-embed {
+      margin: 4em auto;
+    }
+
     .fdd-art--description {
       @include base-font-family-set();
       a {
@@ -134,7 +139,7 @@
   $items-padding: 50px;
 
   .fdd-art--page {
-    figure {
+    figure.wp-block-image {
       margin: $items-padding 0 $items-padding * 1.2 0;
     }
     .fdd-art--description {

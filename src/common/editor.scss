@@ -14,7 +14,7 @@
   }
 }
 
-.components-panel {
+.components-panel, .components-popover {
   .editor-block-styles__item.is-active {
      .fake-preview:before {
         content: '\2705';
@@ -22,5 +22,10 @@
         text-align: center;
         display: block;
      }
+  }
+  .editor-block-styles__item {
+    figure.wp-block-embed {
+      display: none;
+    }
   }
 }

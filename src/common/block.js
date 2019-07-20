@@ -10,8 +10,14 @@ import './editor.scss';
  ********************************************************/
 
 const fdd_embedingStyles = [
-  { name: '_default', label: 'Default', isDefault: true },
-  { name: 'vertical', label: 'Vertical' },
+  { name: 'default', label: '<Not selected>', isDefault: true },
+  { name: 'square', label: 'Square 1:1' },
+  { name: 'horiz-4-3', label: 'Horizontal 4:3' },
+  { name: 'horiz-4-266', label: 'Horizontal 4:2.66' },
+  { name: 'horiz-16-10', label: 'Horizontal 16:10' },
+  { name: 'horiz-16-9', label: 'Horizontal 16:9' },
+  { name: 'vertical-16-9', label: 'Vertical 16:9' },
+  { name: 'vertical-16-844', label: 'Vertical 16:8.44' },
 ];
 
 domReady(() => {
@@ -19,54 +25,6 @@ domReady(() => {
     registerBlockStyle('core-embed/youtube', style);
   });
 });
-
-/*
-
-// Removed in favor of core-embed/youtube
-
-registerBlockType('fdd-block/video-embed', {
-  title: 'Video Block',
-  icon: 'format-video',
-  category: 'fdd-block-category',
-  useOnce: true,
-  parent: [
-    'fdd-block/recipe--media',
-  ],
-  attributes: {
-  },
-  styles: fdd_embedingStyles,
-
-  edit({ insertBlocksAfter }) {
-    if (!insertBlocksAfter) {
-      // https://github.com/WordPress/gutenberg/issues/9897#issuecomment-454390792
-      return <div className='fake-preview'></div>;
-    }
-    return (
-      <div className="container">
-        Type in the &lt;iframe&gt; code for video:
-        <InnerBlocks
-          allowedBlocks={['core/html']}
-          template={[['core/html']]}
-          templateLock="all"
-        />
-      </div>
-    );
-  },
-
-  save({ className }) {
-    let classes = ["fdd-video-wrapper-outer", className].join(" ");
-    return (
-      <div className={classes}>
-        <div className="fdd-video-wrapper-inner">
-          <InnerBlocks.Content />
-        </div>
-      </div>
-    );
-  }
-});
-
-*/
-
 
 /********************************************************
  *   Subtitled paragraph
@@ -85,7 +43,7 @@ registerBlockType('fdd-block/para-with-title', {
     },
   },
   styles: [
-    { name: '_default', label: 'Default', isDefault: true },
+    { name: 'default', label: 'Default', isDefault: true },
     { name: 'two-columns', label: 'Two Columns' },
   ],
 

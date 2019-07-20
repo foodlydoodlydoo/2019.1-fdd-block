@@ -4,44 +4,77 @@
  * CSS for both Frontend+Backend.
  */
 
-
-/*
-In case we ressurect fdd-block/video-embed rework classes as:
-
-.fdd-video-container, .fdd-recipe--media {
-  .fdd-video-wrapper-outer, figure.wp-block-embed {
-    .fdd-video-wrapper-inner, .wp-block-embed__wrapper {
-    }
-  }
-}
-*/
-
-.fdd-recipe--media {
+.fdd-recipe--media, .fdd-art--page {
   figure.wp-block-embed {
     float: left;
-    width: 100%;
     .wp-block-embed__wrapper {
       position: relative;
-      width: 99.8%; // Workaround for Firefox black borders, shame on you F**kfox!
-      padding-top: 100%;
+      width: 100%;
+      padding-top: 10%; // this is a fallback for undefined ratio style, make visible it's broken!
       iframe, object, embed {
+        position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        position: absolute;
-        max-width: 100%;
       }
     }
   }
 }
 
-.fdd-recipe--media {
-  figure.wp-block-embed.is-style-vertical {
-    width: 50%;
-    padding-right: $fdd-outer-padding-wide-screen;
-    .wp-block-embed__wrapper {
-      padding-top: 150%;
-    }
+figure.wp-block-embed.is-style-default {
+  width: 100%;
+  color: red;
+  border: 10px solid;
+  text-align: center;
+  &:before, &:after {
+    font-size: 20px;
+    content: 'Set style on me, please!';
   }
+  .wp-block-embed__wrapper {
+    padding-top: 25%;
+  }
+}
+
+/**
+ * Embed aspect ratio styling corresponding to fdd_embedingStyles in ./block.js
+ */
+@mixin embed-responsive-style($width, $height) {
+  @if ($width > $height) {
+    width: 100%; // can't use the portrait expression, because on narrower screens the video grows over to sides (to the right)
+  }
+  @else {
+    width: ($width / $height) * 85vh;
+    clear: both;  
+  }
+  .wp-block-embed__wrapper {
+    padding-top: ($height / $width) * 100%;
+  }
+}
+
+// Square
+figure.wp-block-embed.is-style-square {
+  @include embed-responsive-style(1, 1);
+}
+
+// Horizontal
+figure.wp-block-embed.is-style-horiz-4-3 {
+  @include embed-responsive-style(4, 3);
+}
+figure.wp-block-embed.is-style-horiz-4-266 {
+  @include embed-responsive-style(4, 2.66);
+}
+figure.wp-block-embed.is-style-horiz-16-9 {
+  @include embed-responsive-style(16, 9);
+}
+figure.wp-block-embed.is-style-horiz-16-10 {
+  @include embed-responsive-style(16, 10);
+}
+
+// Vertical
+figure.wp-block-embed.is-style-vertical-16-9 {
+  @include embed-responsive-style(9, 16);
+}
+figure.wp-block-embed.is-style-vertical-16-844 {
+  @include embed-responsive-style(8.44, 16);
 }

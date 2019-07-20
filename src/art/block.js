@@ -17,11 +17,15 @@ registerBlockType('fdd-block/art', {
 		return (
 			<div className="container">
 				<InnerBlocks
-					allowedBlocks={['fdd-block/art--description-container', 'core/image']}
+					allowedBlocks={[
+						'fdd-block/art--description-container',
+						'core/image',
+						'core-embed/youtube',
+					]}
 					template={[
 						['core/image', { className: "featured" }],
 						['fdd-block/art--description-container'],
-						['core/image']
+						['core/image'],
 					]}
 					templateLock={false}
 				/>

@@ -164,7 +164,10 @@ $recipe-second-and-on-image-max-height: 10vh;
       flex-wrap: wrap;
       justify-content: center;
       
-      figure {
+      figure.wp-block-embed {
+        margin-top: 0;
+      }
+      figure.wp-block-image {
         min-width: 0;
         margin: 0 0 $recipe-image-padding 0;
         //padding-left: $recipe-image-padding;
@@ -193,9 +196,6 @@ $recipe-second-and-on-image-max-height: 10vh;
           object-position: 50% 50%;
           clear: both;
         }
-      }
-      figure.wp-block-embed.is-style-vertical:first-child {
-        width: 55vh;
       }
     }
   }
@@ -282,11 +282,14 @@ $recipe-second-and-on-image-max-height: 10vh;
       padding-left: $fdd-outer-padding-narrow-screen;
       padding-right: $fdd-outer-padding-narrow-screen;
       width: 100%;
-      display: inline-block;
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: $fdd-outer-padding-narrow-screen;
+      //flex-flow: column;
       figure:not(:last-child) {
         margin-bottom: 10vh;
       }
-      img, figure.wp-block-embed {
+      img, figure.wp-block-embed, figure.wp-block-image {
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -295,7 +298,7 @@ $recipe-second-and-on-image-max-height: 10vh;
         max-height: 80vh; // function of sizes_attribute_hook -> 'recipes' mode for this screen width and portrait
       }
       figure.wp-block-embed {
-        width: 100%;
+        margin-top: 2em;
         clear: both;
         max-height: inherit;
         &.is-style-vertical {
