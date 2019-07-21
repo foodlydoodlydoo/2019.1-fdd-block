@@ -6,6 +6,7 @@
 
 .fdd-recipe--media, .fdd-art--page {
   figure.wp-block-embed {
+    margin-top: -2px; // to compensate the 2px outline covering
     float: left;
     width: 90%; // default value, override with block-style!
     .wp-block-embed__wrapper {
