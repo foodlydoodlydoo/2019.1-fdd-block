@@ -40,12 +40,13 @@ figure.wp-block-embed {
 
 @mixin embed-responsive-style($width, $height, $force_vh: false) {
   @if (($width > $height) and (not $force_vh)) {
-    width: 90%;
+    width: 100%;
   }
   @else {
     width: ($width / $height) * 85vh;
     clear: both;  
   }
+
   .wp-block-embed__wrapper {
     padding-top: ($height / $width) * 100%;
   }
