@@ -112,12 +112,12 @@ figure.wp-block-embed.is-style-vertical-16-844 {
     @include embed-responsive-style(16, 9, true);
   }
 }
-@media screen and (max-aspect-ratio: 16/10) {
+@media screen and (min-aspect-ratio: 16/10) {
   figure.wp-block-embed.is-style-horiz-16-10 {
     @include embed-responsive-style(16, 10, true);
   }
 }
-@media screen and (max-aspect-ratio: 15/10) {
+@media screen and (min-aspect-ratio: 15/10) {
   figure.wp-block-embed.is-style-horiz-15-10 {
     @include embed-responsive-style(15, 10, true);
   }
