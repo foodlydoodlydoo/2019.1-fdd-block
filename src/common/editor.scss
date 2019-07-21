@@ -29,3 +29,11 @@
     }
   }
 }
+
+// Remove all aspec ratio responsivity manipulations when in the editor.
+figure.wp-block-embed {
+  width: auto !important;
+  .wp-block-embed__wrapper {
+    padding-top: initial !important;
+  }
+}
