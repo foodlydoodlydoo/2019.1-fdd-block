@@ -37,9 +37,6 @@ figure.wp-block-embed {
 
 }
 
-/**
- * Embed aspect ratio styling corresponding to fdd_embedingStyles in ./block.js
- */
 @mixin embed-responsive-style($width, $height, $force_vh: false) {
   @if (($width > $height) and (not $force_vh)) {
     width: 90%;
@@ -53,6 +50,10 @@ figure.wp-block-embed {
   }
 }
 
+/**
+ * Embed aspect ratio styling corresponding to fdd_embedingStyles in ./block.js
+ */
+
 // Square
 @media screen and (max-aspect-ratio: 1/1) {
   figure.wp-block-embed.is-style-square {
@@ -65,6 +66,75 @@ figure.wp-block-embed {
   }
 }
 
+
+// Horizontal
+@media screen and (max-aspect-ratio: 4/3) {
+  figure.wp-block-embed.is-style-horiz-4-3 {
+    @include embed-responsive-style(4, 3);
+  }
+}
+@media screen and (min-aspect-ratio: 4/3) {
+  figure.wp-block-embed.is-style-horiz-4-3 {
+    @include embed-responsive-style(4, 3, true);
+  }
+}
+
+@media screen and (max-aspect-ratio: 400/266) {
+  figure.wp-block-embed.is-style-horiz-4-266 {
+    @include embed-responsive-style(4, 2.66);
+  }
+}
+@media screen and (min-aspect-ratio: 400/266) {
+  figure.wp-block-embed.is-style-horiz-4-266 {
+    @include embed-responsive-style(4, 2.66, true);
+  }
+}
+
+@media screen and (max-aspect-ratio: 1600/844) {
+  figure.wp-block-embed.is-style-horiz-16-844 {
+    @include embed-responsive-style(16, 8.44);
+  }
+}
+@media screen and (min-aspect-ratio: 1600/844) {
+  figure.wp-block-embed.is-style-horiz-16-844 {
+    @include embed-responsive-style(16, 8.44, true);
+  }
+}
+
+@media screen and (max-aspect-ratio: 16/9) {
+  figure.wp-block-embed.is-style-horiz-16-9 {
+    @include embed-responsive-style(16, 9);
+  }
+}
+@media screen and (min-aspect-ratio: 16/9) {
+  figure.wp-block-embed.is-style-horiz-16-9 {
+    @include embed-responsive-style(16, 9, true);
+  }
+}
+
+@media screen and (max-aspect-ratio: 16/10) {
+  figure.wp-block-embed.is-style-horiz-16-10 {
+    @include embed-responsive-style(16, 10);
+  }
+}
+@media screen and (min-aspect-ratio: 16/10) {
+  figure.wp-block-embed.is-style-horiz-16-10 {
+    @include embed-responsive-style(16, 10, true);
+  }
+}
+
+@media screen and (max-aspect-ratio: 15/10) {
+  figure.wp-block-embed.is-style-horiz-15-10 {
+    @include embed-responsive-style(15, 10);
+  }
+}
+@media screen and (min-aspect-ratio: 15/10) {
+  figure.wp-block-embed.is-style-horiz-15-10 {
+    @include embed-responsive-style(15, 10, true);
+  }
+}
+
+
 // Vertical
 figure.wp-block-embed.is-style-vertical-16-902 {
   @include embed-responsive-style(9.02, 16);
@@ -74,58 +144,4 @@ figure.wp-block-embed.is-style-vertical-16-9 {
 }
 figure.wp-block-embed.is-style-vertical-16-844 {
   @include embed-responsive-style(8.44, 16);
-}
-
-// Horizontal on landscape orientation
-@media screen and (max-aspect-ratio: 4/3) {
-  figure.wp-block-embed.is-style-horiz-4-3 {
-    @include embed-responsive-style(4, 3);
-  }
-}
-@media screen and (max-aspect-ratio: 400/266) {
-  figure.wp-block-embed.is-style-horiz-4-266 {
-    @include embed-responsive-style(4, 2.66);
-  }
-}
-@media screen and (max-aspect-ratio: 16/9) {
-  figure.wp-block-embed.is-style-horiz-16-9 {
-    @include embed-responsive-style(16, 9);
-  }
-}
-@media screen and (max-aspect-ratio: 16/10) {
-  figure.wp-block-embed.is-style-horiz-16-10 {
-    @include embed-responsive-style(16, 10);
-  }
-}
-@media screen and (max-aspect-ratio: 15/10) {
-  figure.wp-block-embed.is-style-horiz-15-10 {
-    @include embed-responsive-style(15, 10);
-  }
-}
-
-// Horizontal on portrait orintetaion
-@media screen and (min-aspect-ratio: 4/3) {
-  figure.wp-block-embed.is-style-horiz-4-3 {
-    @include embed-responsive-style(4, 3, true);
-  }
-}
-@media screen and (min-aspect-ratio: 400/266) {
-  figure.wp-block-embed.is-style-horiz-4-266 {
-    @include embed-responsive-style(4, 2.66, true);
-  }
-}
-@media screen and (min-aspect-ratio: 16/9) {
-  figure.wp-block-embed.is-style-horiz-16-9 {
-    @include embed-responsive-style(16, 9, true);
-  }
-}
-@media screen and (min-aspect-ratio: 16/10) {
-  figure.wp-block-embed.is-style-horiz-16-10 {
-    @include embed-responsive-style(16, 10, true);
-  }
-}
-@media screen and (min-aspect-ratio: 15/10) {
-  figure.wp-block-embed.is-style-horiz-15-10 {
-    @include embed-responsive-style(15, 10, true);
-  }
 }
