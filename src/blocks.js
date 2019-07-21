@@ -29,12 +29,14 @@ wp.hooks.addFilter(
         //console.log(arguments);
 
         let block = arguments[0];
-        let { attributes } = block;
-        block.setAttributes({
-          linkDestination: 'media',
-          href: attributes.url,
-          caption: '',
-        });
+        let { attributes, className } = block;
+        if (!className.match(/\bno-link\b/)) {
+          block.setAttributes({
+            linkDestination: 'media',
+            href: attributes.url,
+            caption: '',
+          });
+        }
 
         let result = edit.apply(this, arguments);
 
