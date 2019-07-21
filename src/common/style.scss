@@ -138,8 +138,8 @@ figure.wp-block-embed {
 
 
 // Vertical
-figure.wp-block-embed.is-style-vertical-16-902 {
-  @include embed-responsive-style(9.02, 16);
+figure.wp-block-embed.is-style-vertical-15-10 {
+  @include embed-responsive-style(10, 15);
 }
 figure.wp-block-embed.is-style-vertical-16-9 {
   @include embed-responsive-style(9, 16);

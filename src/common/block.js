@@ -12,15 +12,15 @@ import './editor.scss';
 const fdd_embedingStyles = [
   { name: 'default', label: '<Not selected>', isDefault: true },
   { name: 'square', label: 'Square 1:1' },
+  { name: 'horiz-15-10', label: 'Landscape 3:2' },
   { name: 'horiz-4-266', label: 'Landscape 4:2.66' },
   { name: 'horiz-4-3', label: 'Landscape 4:3' },
-  { name: 'horiz-15-10', label: 'Landscape 15:10' },
   { name: 'horiz-16-844', label: 'Landscape 16:8.44' },
   { name: 'horiz-16-9', label: 'Landscape 16:9' },
   { name: 'horiz-16-10', label: 'Landscape 16:10' },
+  { name: 'vertical-15-10', label: 'Portrait 2:3' },
   { name: 'vertical-16-844', label: 'Portrait 8.44:16' },
   { name: 'vertical-16-9', label: 'Portrait 9:16' },
-  { name: 'vertical-16-902', label: 'Portrait 9.02:16' },
 ];
 
 domReady(() => {
