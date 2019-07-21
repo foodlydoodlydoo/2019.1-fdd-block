@@ -12,13 +12,14 @@ import './editor.scss';
 const fdd_embedingStyles = [
   { name: 'default', label: '<Not selected>', isDefault: true },
   { name: 'square', label: 'Square 1:1' },
-  { name: 'horiz-4-3', label: 'Horizontal 4:3' },
-  { name: 'horiz-4-266', label: 'Horizontal 4:2.66' },
-  { name: 'horiz-16-10', label: 'Horizontal 16:10' },
-  { name: 'horiz-16-9', label: 'Horizontal 16:9' },
-  { name: 'vertical-16-902', label: 'Vertical 16:9.02' },
-  { name: 'vertical-16-9', label: 'Vertical 16:9' },
-  { name: 'vertical-16-844', label: 'Vertical 16:8.44' },
+  { name: 'horiz-4-3', label: 'Landscape 4:3' },
+  { name: 'horiz-4-266', label: 'Landscape 4:2.66' },
+  { name: 'horiz-15-10', label: 'Landscape 15:10' },
+  { name: 'horiz-16-10', label: 'Landscape 16:10' },
+  { name: 'horiz-16-9', label: 'Landscape 16:9' },
+  { name: 'vertical-16-902', label: 'Portrait 16:9.02' },
+  { name: 'vertical-16-9', label: 'Portrait 16:9' },
+  { name: 'vertical-16-844', label: 'Portrait 16:8.44' },
 ];
 
 domReady(() => {

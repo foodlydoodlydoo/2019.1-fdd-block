@@ -13,6 +13,8 @@
       width: 100%;
       padding-top: 100%; // default value, override with block-style!
       iframe, object, embed {
+        outline: 4px $base-bg-color solid;
+        outline-offset: -2px;
         position: absolute;
         top: 0;
         left: 0;
@@ -23,12 +25,24 @@
   }
 }
 
+@media screen and (display-mode: fullscreen) {
+
+figure.wp-block-embed {
+  .wp-block-embed__wrapper {
+    iframe, object, embed {
+      outline: none !important;
+    }
+  }
+}
+
+}
+
 /**
  * Embed aspect ratio styling corresponding to fdd_embedingStyles in ./block.js
  */
-@mixin embed-responsive-style($width, $height) {
-  @if ($width > $height) {
-    width: 100%; // can't use the portrait expression, because on narrower screens the video grows over to sides (to the right)
+@mixin embed-responsive-style($width, $height, $force_vh: false) {
+  @if (($width > $height) and (not $force_vh)) {
+    width: 90%;
   }
   @else {
     width: ($width / $height) * 85vh;
@@ -44,20 +58,6 @@ figure.wp-block-embed.is-style-square {
   @include embed-responsive-style(1, 1);
 }
 
-// Horizontal
-figure.wp-block-embed.is-style-horiz-4-3 {
-  @include embed-responsive-style(4, 3);
-}
-figure.wp-block-embed.is-style-horiz-4-266 {
-  @include embed-responsive-style(4, 2.66);
-}
-figure.wp-block-embed.is-style-horiz-16-9 {
-  @include embed-responsive-style(16, 9);
-}
-figure.wp-block-embed.is-style-horiz-16-10 {
-  @include embed-responsive-style(16, 10);
-}
-
 // Vertical
 figure.wp-block-embed.is-style-vertical-16-902 {
   @include embed-responsive-style(9.02, 16);
@@ -67,4 +67,58 @@ figure.wp-block-embed.is-style-vertical-16-9 {
 }
 figure.wp-block-embed.is-style-vertical-16-844 {
   @include embed-responsive-style(8.44, 16);
+}
+
+// Horizontal on landscape orientation
+@media screen and (max-aspect-ratio: 4/3) {
+  figure.wp-block-embed.is-style-horiz-4-3 {
+    @include embed-responsive-style(4, 3);
+  }
+}
+@media screen and (max-aspect-ratio: 400/266) {
+  figure.wp-block-embed.is-style-horiz-4-266 {
+    @include embed-responsive-style(4, 2.66);
+  }
+}
+@media screen and (max-aspect-ratio: 16/9) {
+  figure.wp-block-embed.is-style-horiz-16-9 {
+    @include embed-responsive-style(16, 9);
+  }
+}
+@media screen and (max-aspect-ratio: 16/10) {
+  figure.wp-block-embed.is-style-horiz-16-10 {
+    @include embed-responsive-style(16, 10);
+  }
+}
+@media screen and (max-aspect-ratio: 15/10) {
+  figure.wp-block-embed.is-style-horiz-15-10 {
+    @include embed-responsive-style(15, 10);
+  }
+}
+
+// Horizontal on portrait orintetaion
+@media screen and (min-aspect-ratio: 4/3) {
+  figure.wp-block-embed.is-style-horiz-4-3 {
+    @include embed-responsive-style(4, 3, true);
+  }
+}
+@media screen and (min-aspect-ratio: 400/266) {
+  figure.wp-block-embed.is-style-horiz-4-266 {
+    @include embed-responsive-style(4, 2.66, true);
+  }
+}
+@media screen and (min-aspect-ratio: 16/9) {
+  figure.wp-block-embed.is-style-horiz-16-9 {
+    @include embed-responsive-style(16, 9, true);
+  }
+}
+@media screen and (max-aspect-ratio: 16/10) {
+  figure.wp-block-embed.is-style-horiz-16-10 {
+    @include embed-responsive-style(16, 10, true);
+  }
+}
+@media screen and (max-aspect-ratio: 15/10) {
+  figure.wp-block-embed.is-style-horiz-15-10 {
+    @include embed-responsive-style(15, 10, true);
+  }
 }
