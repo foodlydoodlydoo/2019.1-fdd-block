@@ -285,8 +285,9 @@ $recipe-second-and-on-image-max-height: 10vh;
         border-bottom: 1px solid $header-bottom-line-color-on-home;
       }
       //flex-flow: column;
-      figure:not(:last-child) {
-        margin-bottom: 10vh;
+      figure {
+        //margin-bottom: 10vh;
+        margin-bottom: 5em;
       }
       img, figure.wp-block-embed, figure.wp-block-image {
         display: block;
