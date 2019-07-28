@@ -316,6 +316,13 @@ $recipe-second-and-on-image-max-height: 10vh;
 
   @media screen and (max-width: $fdd-narrow-width-pixels - 0.1px) {
 
+  .category-recipes {
+    .single__title, .single__excerpt {
+      padding-left: $fdd-outer-padding-narrow-screen;
+      padding-right: $fdd-outer-padding-narrow-screen;
+    }
+  }
+
   .fdd-recipe--page { // [global]
     .fdd-recipe--text {
       .fdd-recipe--chars {
@@ -336,6 +343,6 @@ $recipe-second-and-on-image-max-height: 10vh;
     }
   }
 
-  }
+  } // @media
 
-}
+} // .single
