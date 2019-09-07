@@ -132,7 +132,7 @@ $recipe-second-and-on-image-max-height: 10vh;
         &.is-style-two-columns {
           .fdd-titled-para__inner {
             ul, ol {
-              columns: 12em 2;
+              columns: 10em 2;
               column-gap: 32px;
               li {
                 break-inside: avoid;
