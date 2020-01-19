@@ -86,29 +86,6 @@ add_filter('block_categories', 'fdd_blocks_categories', 10, 2);
 
 // FDD render hooks
 
-// see: https://www.ibenic.com/enable-inner-blocks-gutenberg/
-//function fdd_block_register_blocks() {
-//  register_block_type('fdd-block/recipe--characteristics', [
-//    'render_callback' => 'fdd_render_callback_frontend_recipe__characteristics',
-//  ]);
-//}
-//add_action('init', 'fdd_block_register_blocks');
-
-//function fdd_collect_innerblocks($block) {
-//  if (!array_key_exists('innerBlocks', $block)) {
-//    return '';
-//  }
-//
-//  $content = '';
-//  $innerBlocks = $block['innerBlocks'];
-//  foreach ($innerBlocks as $innerBlock) {
-//    $content .= $innerBlock['innerHTML'];
-//    $content .= fdd_collect_innerblocks($innerBlock, $content);
-//  }
-//
-//  return $content;
-//}
-
 function fdd_render_block_frontend($content, $block) {
   $is_fdd_block = preg_match('/^fdd-block\/(.*)/', $block['blockName'], $match);
   if ($is_fdd_block) {
