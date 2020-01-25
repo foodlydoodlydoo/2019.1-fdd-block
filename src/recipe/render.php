@@ -20,6 +20,7 @@ function fdd_render_block__recipe__text($innerBlocks, $block, $attrs) {
   $content .= "<div class='fdd-recipe--excerpt'>$excerpt</div>";
   $content .= "<div class='fdd-recipe--excerpt--after'></div>";
   $content .= $innerBlocks;
+  $content .= '[fdd_aweber_form name="subscribe-inline-1" title="(in-content)"]';
   $content .= "</div>";
 
   return $content;
