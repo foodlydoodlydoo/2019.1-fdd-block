@@ -16,8 +16,8 @@ $recipe-first-image-max-height: 77vh;
 $recipe-second-and-on-image-max-height: 10vh;
 
 .single {
-
-  .fdd-recipe--page { // [global]
+  .fdd-recipe--page {
+    // [global]
     .fdd-recipe--text {
       .fdd-recipe--excerpt {
         line-height: 1.7;
@@ -87,121 +87,119 @@ $recipe-second-and-on-image-max-height: 10vh;
   **********************************************************/
 
   @media screen and (min-width: $fdd-wide-width-pixels) {
+    .category-recipes {
+      header {
+        position: relative;
+      }
+      padding-top: $recipe-content-top-padding - $recipe-media-text-align-offset;
+      @if ($recipe-show-pretitle-border) {
+        .single__pre_title {
+          width: calc(40% - 5vw);
+          height: 6px;
+          background: black;
+          position: absolute;
+          top: 0px - $recipe-content-top-padding + $recipe-media-text-align-offset;
+          right: 2.5vw;
+          font-size: 47px;
+        }
+      }
+      .single__title {
+        @include title__float_right();
+      }
+      .single__excerpt {
+        display: none;
+      }
+    }
 
-  .category-recipes {
-    header {
-      position: relative;
-    }
-    padding-top: $recipe-content-top-padding - $recipe-media-text-align-offset;
-    @if ($recipe-show-pretitle-border) {
-      .single__pre_title {
-        width: calc(40% - 5vw);
-        height: 6px;
-        background: black;
-        position: absolute;
-        top: 0px - $recipe-content-top-padding + $recipe-media-text-align-offset;
-        right: 2.5vw;
-        font-size: 47px;
-      }
-    }
-    .single__title {
-      @include title__float_right()
-    }
-    .single__excerpt {
-      display: none;
-    }
-  }
-
-  .fdd-recipe--page {
-    .fdd-recipe--text {
-      float: right;
-      clear: right;
-      width: 40%;
-      padding: 0 $fdd-outer-padding-wide-screen 0 $fdd-inner-padding-wide-screen;
-      .fdd-recipe--excerpt {
-        font-size: 27px;
-      }
-      .fdd-recipe--excerpt--after {
-        width: 5em;
-        height: 1px;
-        background-color: $base-fdd-text-color;
-        display: inline-block;
-      }
-      .fdd-titled-para {
-        margin-bottom: 4em;
-        &.is-style-two-columns {
-          .fdd-titled-para__inner {
-            ul, ol {
-              columns: 10em 2;
-              column-gap: 32px;
-              li {
-                break-inside: avoid;
-              }
-              li:last-child {
-                padding-bottom: 1em;
+    .fdd-recipe--page {
+      .fdd-recipe--text {
+        float: right;
+        clear: right;
+        width: 40%;
+        padding: 0 $fdd-outer-padding-wide-screen 0 $fdd-inner-padding-wide-screen;
+        .fdd-recipe--excerpt {
+          font-size: 27px;
+        }
+        .fdd-recipe--excerpt--after {
+          width: 5em;
+          height: 1px;
+          background-color: $base-fdd-text-color;
+          display: inline-block;
+        }
+        .fdd-titled-para {
+          margin-bottom: 4em;
+          &.is-style-two-columns {
+            .fdd-titled-para__inner {
+              ul,
+              ol {
+                columns: 10em 2;
+                column-gap: 32px;
+                li {
+                  break-inside: avoid;
+                }
+                li:last-child {
+                  padding-bottom: 1em;
+                }
               }
             }
           }
         }
       }
-    }
 
-    .fdd-recipe--media {
-      float: left;
-      clear: left;
-      width: 60%;
-      padding-left: 0; //$fdd-outer-padding-wide-screen;
-      padding-right: $fdd-inner-padding-wide-screen;
+      .fdd-recipe--media {
+        float: left;
+        clear: left;
+        width: 60%;
+        padding-left: 0; //$fdd-outer-padding-wide-screen;
+        padding-right: $fdd-inner-padding-wide-screen;
 
-      margin-top: $recipe-media-text-align-offset;
-      position: sticky;
-      top: $recipe-media-top-sticky-offset;
+        margin-top: $recipe-media-text-align-offset;
+        position: sticky;
+        top: $recipe-media-top-sticky-offset;
 
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      
-      figure.wp-block-embed {
-        margin-top: 0;
-      }
-      figure.wp-block-image {
-        min-width: 0;
-        margin: 0 0 $recipe-image-padding 0;
-        //padding-left: $recipe-image-padding;
-        //padding-right: 0;
-        padding-left: $recipe-image-padding / 2;
-        padding-right: $recipe-image-padding / 2;
-        img {
-          display: block;
-          max-height: $recipe-second-and-on-image-max-height;
-          min-height: $recipe-second-and-on-image-max-height;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        figure.wp-block-embed {
+          margin-top: 0;
+        }
+        figure.wp-block-image {
+          min-width: 0;
+          margin: 0 0 $recipe-image-padding 0;
+          //padding-left: $recipe-image-padding;
+          //padding-right: 0;
+          padding-left: $recipe-image-padding / 2;
+          padding-right: $recipe-image-padding / 2;
+          img {
+            display: block;
+            max-height: $recipe-second-and-on-image-max-height;
+            min-height: $recipe-second-and-on-image-max-height;
+          }
+        }
+        figure.wp-block-image:first-child {
+          width: 100%;
+          padding-left: 0;
+          padding-right: 0;
+          img {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            //width: 100%;
+            max-height: $recipe-first-image-max-height;
+
+            object-fit: contain;
+            //object-fit: cover;
+            object-position: 50% 50%;
+            clear: both;
+          }
         }
       }
-      figure.wp-block-image:first-child {
-        width: 100%;
-        padding-left: 0;
-        padding-right: 0;
-        img {
-          margin-left: auto;
-          margin-right: auto;
-          display: block;
-          //width: 100%;
-          max-height: $recipe-first-image-max-height;
-          
-          object-fit: contain;
-          //object-fit: cover;
-          object-position: 50% 50%;
-          clear: both;
-        }
-      }
     }
-  }
 
-  // Comment out if the centered semi-random layout for image thumbnails is more desired
-  //@include space-between-for-images()
-
+    // Comment out if the centered semi-random layout for image thumbnails is more desired
+    //@include space-between-for-images()
   } // @media screen and (min-width: $fdd-wide-width-pixels)
-
 
   /**********************************************************
   Too high screen
@@ -209,7 +207,6 @@ $recipe-second-and-on-image-max-height: 10vh;
 
   // 1477px = 960px (fdd-640 height for portrait) / 65vh
   @media screen and (min-height: 1477px) {
-
     .fdd-recipe--media {
       figure.wp-block-image {
         img {
@@ -224,7 +221,6 @@ $recipe-second-and-on-image-max-height: 10vh;
         }
       }
     }
-
   }
 
   /**********************************************************
@@ -232,117 +228,119 @@ $recipe-second-and-on-image-max-height: 10vh;
   **********************************************************/
 
   @media screen and (max-width: $fdd-wide-width-pixels - 0.1px) {
-
-  .category-recipes {
-    .single__title, .single__excerpt {
-      @include title__centered();
-    }
-    .single__excerpt {
-      padding: 0 15% 1em;
-      margin-bottom: 1.5em;
-    }
-  }
-
-  .fdd-recipe--page {
-    .fdd-recipe--text {
-      width: 100%;
-      padding: 0 $fdd-outer-padding-narrow-screen;
-      .fdd-recipe--excerpt, .fdd-recipe--excerpt--after {
-        display: none;
+    .category-recipes {
+      .single__title,
+      .single__excerpt {
+        @include title__centered();
       }
-      .fdd-titled-para {
-        margin-bottom: 3em;
-        /*
+      .single__excerpt {
+        padding: 0 15% 1em;
+        margin-bottom: 1.5em;
+      }
+    }
+
+    .fdd-recipe--page {
+      .fdd-recipe--text {
+        width: 100%;
+        padding: 0 $fdd-outer-padding-narrow-screen;
+        .fdd-recipe--excerpt,
+        .fdd-recipe--excerpt--after {
+          display: none;
+        }
+        .fdd-titled-para {
+          margin-bottom: 3em;
+          /*
         .fdd-titled-para__title {
           border-top: 1px $base-fdd-text-color solid;
         }
         */
-        &.is-style-two-columns {
-          .fdd-titled-para__inner {
-            ul, ol {
-              columns: 18em 2;
-              column-gap: $fdd-outer-padding-narrow-screen;
-              li {
-                break-inside: avoid;
-              }
-              li:last-child {
-                padding-bottom: 3em;
+          &.is-style-two-columns {
+            .fdd-titled-para__inner {
+              ul,
+              ol {
+                columns: 18em 2;
+                column-gap: $fdd-outer-padding-narrow-screen;
+                li {
+                  break-inside: avoid;
+                }
+                li:last-child {
+                  padding-bottom: 3em;
+                }
               }
             }
           }
         }
       }
-    }
 
-    .fdd-recipe--media {
-      padding-left: $fdd-outer-padding-narrow-screen;
-      padding-right: $fdd-outer-padding-narrow-screen;
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      column-gap: $fdd-outer-padding-narrow-screen;
-      > .fdd-heel {
-        border-bottom: 1px solid $header-bottom-line-color-on-home;
-      }
-      //flex-flow: column;
-      figure {
-        //margin-bottom: 10vh;
-        margin-bottom: 5em;
-      }
-      img, figure.wp-block-embed, figure.wp-block-image {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        min-width: 0;
-        max-width: 100%;
-        max-height: 80vh; // function of sizes_attribute_hook -> 'recipes' mode for this screen width and portrait
-      }
-      figure.wp-block-embed {
-        clear: both;
-        max-height: inherit;
-        &.is-style-vertical {
-          padding: 0;
+      .fdd-recipe--media {
+        padding-left: $fdd-outer-padding-narrow-screen;
+        padding-right: $fdd-outer-padding-narrow-screen;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: $fdd-outer-padding-narrow-screen;
+        > .fdd-heel {
+          border-bottom: 1px solid $header-bottom-line-color-on-home;
+        }
+        //flex-flow: column;
+        figure {
+          //margin-bottom: 10vh;
+          margin-bottom: 5em;
+        }
+        img,
+        figure.wp-block-embed,
+        figure.wp-block-image {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          min-width: 0;
+          max-width: 100%;
+          max-height: 80vh; // function of sizes_attribute_hook -> 'recipes' mode for this screen width and portrait
+        }
+        figure.wp-block-embed {
+          clear: both;
+          max-height: inherit;
+          &.is-style-vertical {
+            padding: 0;
+          }
         }
       }
     }
-  }
-
   } // @media screen and (max-width: $fdd-wide-width-pixels - 0.1px)
-
 
   /**********************************************************
     Super-narrow screen
   **********************************************************/
 
   @media screen and (max-width: $fdd-narrow-width-pixels - 0.1px) {
-
-  .category-recipes {
-    .single__title, .single__excerpt {
-      padding-left: $fdd-outer-padding-narrow-screen;
-      padding-right: $fdd-outer-padding-narrow-screen;
-    }
-  }
-
-  .fdd-recipe--page { // [global]
-    .fdd-recipe--text {
-      .fdd-recipe--chars {
-        div {
-          width: 100%;
-          padding: .25em 0;
-        }
+    .category-recipes {
+      .single__title,
+      .single__excerpt {
+        padding-left: $fdd-outer-padding-narrow-screen;
+        padding-right: $fdd-outer-padding-narrow-screen;
       }
-      .fdd-titled-para {
-        .fdd-titled-para__inner {
-          ul, ol {
-            li:last-child {
-              padding-bottom: 0;
+    }
+
+    .fdd-recipe--page {
+      // [global]
+      .fdd-recipe--text {
+        .fdd-recipe--chars {
+          div {
+            width: 100%;
+            padding: 0.25em 0;
+          }
+        }
+        .fdd-titled-para {
+          .fdd-titled-para__inner {
+            ul,
+            ol {
+              li:last-child {
+                padding-bottom: 0;
+              }
             }
           }
         }
       }
     }
-  }
-
   } // @media
-
 } // .single

@@ -7,7 +7,6 @@
 // [global]
 
 .single {
-
   .fdd-art--page {
     width: 100%;
     display: flex;
@@ -56,7 +55,8 @@
       line-height: 2;
       width: 60%;
       @include description-layout();
-      &-before, &-after {
+      &-before,
+      &-after {
         @include description-layout(0);
         height: 1px;
         max-width: 9%;
@@ -80,38 +80,37 @@
   **********************************************************/
 
   @media screen and (min-width: $fdd-wide-width-pixels) {
-
-  .category-food-art, .category-behind-the-scenes {
-    header {
-      display: flex;
-      width: 65%;
-      margin-left: auto;
-      margin-right: auto;
-      flex-wrap: wrap;
-      align-items: baseline;
-      justify-content: space-between;
-      margin-top: 2vw;
-      .single__title {
-        display: block;
-        width: calc(50% - 1rem); // - 0 to center the title right edge
-        text-align: right;
-        margin: 0;
-        padding: 0 0 0 $fdd-outer-padding-wide-screen;
-      }
-      .single__title_excerpt_div {
-        width: 1px;
-        background: $base-fdd-text-color;
-        height: 75px;
-        align-self: center;
-      }
-      .single__excerpt {
-        width: calc(50% - 2rem); // - 3rem --''--
-        text-align: left;
-        padding: 0 15% 0 0;
+    .category-food-art,
+    .category-behind-the-scenes {
+      header {
+        display: flex;
+        width: 65%;
+        margin-left: auto;
+        margin-right: auto;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        margin-top: 2vw;
+        .single__title {
+          display: block;
+          width: calc(50% - 1rem); // - 0 to center the title right edge
+          text-align: right;
+          margin: 0;
+          padding: 0 0 0 $fdd-outer-padding-wide-screen;
+        }
+        .single__title_excerpt_div {
+          width: 1px;
+          background: $base-fdd-text-color;
+          height: 75px;
+          align-self: center;
+        }
+        .single__excerpt {
+          width: calc(50% - 2rem); // - 3rem --''--
+          text-align: left;
+          padding: 0 15% 0 0;
+        }
       }
     }
-  }
-
   }
 
   /**********************************************************
@@ -119,31 +118,30 @@
   **********************************************************/
 
   @media screen and (max-width: $fdd-wide-width-pixels - 0.1px) {
-
-  .category-food-art, .category-behind-the-scenes {
-    header {
-      text-align: center;
-      width: 100%;
-      margin: 0;
-      padding: 0 $fdd-outer-padding-narrow-screen;
-      .single__title {
-        display: block;
+    .category-food-art,
+    .category-behind-the-scenes {
+      header {
+        text-align: center;
         width: 100%;
+        margin: 0;
+        padding: 0 $fdd-outer-padding-narrow-screen;
+        .single__title {
+          display: block;
+          width: 100%;
+        }
       }
     }
-  }
 
-  $items-padding: 50px;
+    $items-padding: 50px;
 
-  .fdd-art--page {
-    figure.wp-block-image {
-      margin: $items-padding 0 $items-padding * 1.2 0;
+    .fdd-art--page {
+      figure.wp-block-image {
+        margin: $items-padding 0 $items-padding * 1.2 0;
+      }
+      .fdd-art--description {
+        padding-bottom: $items-padding * 0.2;
+      }
     }
-    .fdd-art--description {
-      padding-bottom: $items-padding * 0.2;
-    }
-  }
-
   }
 
   /**********************************************************
@@ -151,13 +149,10 @@
   **********************************************************/
 
   @media screen and (max-width: $fdd-narrow-width-pixels - 0.1px) {
-
-  .fdd-art--page {
-    .fdd-art--description {
-      font-size: 16px;
+    .fdd-art--page {
+      .fdd-art--description {
+        font-size: 16px;
+      }
     }
   }
-
-  }
-
 }
