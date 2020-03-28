@@ -61,6 +61,10 @@ $recipe-second-and-on-image-max-height: 10vh;
         }
       }
     }
+    .fdd-recipe--media-nav {
+      display: none;
+      position: absolute;
+    }
   } // .fdd-recipe--page [global]
 
   @mixin space-between-for-images {
@@ -196,10 +200,8 @@ $recipe-second-and-on-image-max-height: 10vh;
         }
 
         .fdd-recipe--media-nav {
-          display: none;
           font-size: 32px;
           opacity: 0.5;
-          position: absolute;
           top: 36%;
           background: #666;
           color: white;
