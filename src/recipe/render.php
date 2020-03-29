@@ -16,7 +16,7 @@ function fdd_render_block__recipe__page($innerBlocks, $block, $attrs) {
 function fdd_render_block__recipe__text($innerBlocks, $block, $attrs) {
   $excerpt = get_the_excerpt();
 
-  $content .= "<div class='fdd-recipe--text'>";
+  $content .= "<div class='fdd-recipe--text' id='recipe_text'>";
   $content .= "<div class='fdd-recipe--excerpt'>$excerpt</div>";
   $content .= "<div class='fdd-recipe--excerpt--after'></div>";
   $content .= $innerBlocks;
@@ -32,6 +32,9 @@ function fdd_render_block__recipe__media($innerBlocks, $block, $attrs) {
   $content .= "<span class='fdd-recipe--media-nav' id='arrow_left'></span>";
   $content .= "<span class='fdd-recipe--media-nav' id='arrow_right'></span>";
   $content .= "<div class='fdd-heel'></div>";
+  $content .= "<div class='recipe_go_to--cover'></div>";
+  $content .= "<a id='recipe_go_to' href='#recipe_text'></a>";
+  $content .= "<div class='fdd-heel bordered'></div>";
   $content .= "</div>";
 
   return $content;
