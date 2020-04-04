@@ -5,9 +5,9 @@
  * which makes it higher in priority.
  */
 
-@import '../common';
+@import "../common";
 
-.wp-block {    
+.wp-block {
   .container {
     border: 2px solid $gray;
     padding: 1rem;
@@ -15,7 +15,8 @@
 }
 
 .block-editor {
-  .editor-plain-text {
+  .editor-plain-text,
+  .block-editor-plain-text {
     width: 70%;
     clear: right;
   }
@@ -28,7 +29,7 @@
     width: calc(30% - 1em);
     float: left;
     clear: left;
-    margin-right: .5em;
+    margin-right: 0.5em;
     text-align: right;
     overflow-x: hidden;
     white-space: nowrap;
