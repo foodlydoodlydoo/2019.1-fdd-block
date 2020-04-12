@@ -60,6 +60,7 @@ registerBlockType('fdd-block/para-with-title', {
         <PlainText
           onChange={content => setAttributes({ title: content })}
           value={attributes.title}
+          placeholder='Type you title here'
         />
         <InnerBlocks
           allowedBlocks={['core/paragraph', 'core/list']}
