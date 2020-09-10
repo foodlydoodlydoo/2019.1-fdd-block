@@ -19,7 +19,10 @@ wp.hooks.addFilter(
   'blocks.registerBlockType',
   'fdd-blocks/common/registerBlockType_hook',
   function (properties, name) {
-    if (name === 'core/image') {
+    // ***** TODO
+    // Disabled because `properties.edit` is no longer a function.
+    // This was a hack anyway :(
+    if (false && name === 'core/image') {
       //console.log(`registration`);
       //console.log(properties);
 
@@ -29,8 +32,9 @@ wp.hooks.addFilter(
         //console.log(arguments);
 
         let block = arguments[0];
+        //console.log(block);
         let { attributes, className } = block;
-        if (!className.match(/\bno-link\b/)) {
+        if (className && !className.match(/\bno-link\b/)) {
           block.setAttributes({
             linkDestination: 'media',
             href: attributes.url,
@@ -38,6 +42,7 @@ wp.hooks.addFilter(
           });
         }
 
+        //console.log(edit);
         let result = edit.apply(this, arguments);
 
         //console.log(`hook to core/image.edit() LEAVE`);
