@@ -12,8 +12,9 @@ $recipe-media-top-sticky-offset: 70px - 25px; // = .header{height: 70px; top: -2
 $recipe-media-text-align-offset: 37px;
 $recipe-show-pretitle-border: false;
 $recipe-image-padding: 2vw;
-$recipe-first-image-max-height: 77vh;
+$recipe-first-image-max-height: 66vh; // 77vh; // 77 when we don't want to show the shop-CtA
 $recipe-second-and-on-image-max-height: 10vh;
+$fdd-carousel-nav-arrow-centering: 30%; // very empyric!
 
 .single {
   .fdd-recipe--page {
@@ -204,7 +205,7 @@ $recipe-second-and-on-image-max-height: 10vh;
         .fdd-recipe--media-nav {
           font-size: 32px;
           opacity: 0.5;
-          top: 28%; // very empiric
+          top: $fdd-carousel-nav-arrow-centering;
           background: #666;
           color: white;
           border-radius: 50%;
