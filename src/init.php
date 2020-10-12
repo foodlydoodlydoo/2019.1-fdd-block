@@ -100,6 +100,15 @@ function fdd_render_block_frontend($content, $block) {
 }
 add_action('render_block', 'fdd_render_block_frontend', 10, 2);
 
+function __get_sidebar($id) {
+  ob_start();
+  dynamic_sidebar($id);
+  $sidebar = ob_get_contents();
+  ob_end_clean();
+
+  return $sidebar;
+}
+
 require_once 'art/render.php';
 require_once 'common/render.php';
 require_once 'recipe/render.php';

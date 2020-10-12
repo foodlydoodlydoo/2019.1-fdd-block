@@ -183,7 +183,7 @@ $recipe-second-and-on-image-max-height: 10vh;
             min-height: $recipe-second-and-on-image-max-height;
           }
         }
-        figure.wp-block-image:first-child {
+        figure.wp-block-image:first-of-type {
           width: 100%;
           padding-left: 0;
           padding-right: 0;
@@ -204,7 +204,7 @@ $recipe-second-and-on-image-max-height: 10vh;
         .fdd-recipe--media-nav {
           font-size: 32px;
           opacity: 0.5;
-          top: 36%;
+          top: 28%; // very empiric
           background: #666;
           color: white;
           border-radius: 50%;
@@ -265,7 +265,7 @@ $recipe-second-and-on-image-max-height: 10vh;
           min-height: 160px;
         }
       }
-      figure.wp-block-image:first-child {
+      figure.wp-block-image:first-of-type {
         img {
           max-height: 960px !important;
           min-height: 960px;

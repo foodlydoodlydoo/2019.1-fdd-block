@@ -27,8 +27,20 @@ function fdd_render_block__recipe__text($innerBlocks, $block, $attrs) {
 }
 
 function fdd_render_block__recipe__media($innerBlocks, $block, $attrs) {
+  $has_images = preg_match("/<img\s/", $innerBlocks);
+
   $content .= "<div class='fdd-recipe--media'>";
+  if ($has_images) {
+    $content .= "<div class='fdd-recipe--cta-shop-top'>";
+    $content .= __get_sidebar('shop-pages-call-to-action');
+    $content .= "</div>";
+  }
   $content .= $innerBlocks;
+  if ($has_images) {
+    $content .= "<div class='fdd-recipe--cta-shop-bottom'>";
+    $content .= __get_sidebar('shop-pages-call-to-action');
+    $content .= "</div>";
+  }
   $content .= "<span class='fdd-recipe--media-nav' id='arrow_left'></span>";
   $content .= "<span class='fdd-recipe--media-nav' id='arrow_right'></span>";
   $content .= "<div class='fdd-heel'></div>";
