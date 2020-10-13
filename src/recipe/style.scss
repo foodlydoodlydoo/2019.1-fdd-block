@@ -12,9 +12,9 @@ $recipe-media-top-sticky-offset: 70px - 25px; // = .header{height: 70px; top: -2
 $recipe-media-text-align-offset: 37px;
 $recipe-show-pretitle-border: false;
 $recipe-image-padding: 2vw;
-$recipe-first-image-max-height: 66vh; // 77vh; // 77 when we don't want to show the shop-CtA
+$recipe-first-image-max-height: 60vh; // 77vh; // 77 when we don't want to show the shop-CtA
 $recipe-second-and-on-image-max-height: 10vh;
-$fdd-carousel-nav-arrow-centering: 30%; // very empyric!
+$fdd-carousel-nav-arrow-centering: calc(50% - 0.75em);
 
 .single {
   .fdd-recipe--page {
@@ -188,6 +188,7 @@ $fdd-carousel-nav-arrow-centering: 30%; // very empyric!
           width: 100%;
           padding-left: 0;
           padding-right: 0;
+          position: relative;
           img {
             margin-left: auto;
             margin-right: auto;
@@ -235,7 +236,8 @@ $fdd-carousel-nav-arrow-centering: 30%; // very empyric!
           }
         }
         .fdd-recipe--media-nav#arrow_right {
-          right: calc(2.5vw + 20px);
+          //right: calc(2.5vw + 20px); // w/o the code moving it to the top figure
+          right: 20px;
           &::before {
             left: 1px;
             content: ">";
