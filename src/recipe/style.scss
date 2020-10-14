@@ -12,7 +12,11 @@ $recipe-media-top-sticky-offset: 70px - 25px; // = .header{height: 70px; top: -2
 $recipe-media-text-align-offset: 37px;
 $recipe-show-pretitle-border: false;
 $recipe-image-padding: 2vw;
-$recipe-first-image-max-height: 60vh; // 77vh; // 77 when we don't want to show the shop-CtA
+// @shop-enable
+// 77vh when we don't want to show the shop-CtA
+// 60vh to make the shop CtA visible
+// * Used in class-images.php !
+$recipe-first-image-max-height: 77vh;
 $recipe-second-and-on-image-max-height: 10vh;
 $fdd-carousel-nav-arrow-centering: calc(50% - 0.75em);
 
