@@ -66,7 +66,7 @@ registerBlockType('fdd-block/recipe--text', {
 					allowedBlocks={['fdd-block/para-with-title']}
 					template={[
 						['fdd-block/recipe--characteristics'],
-						['fdd-block/para-with-title', { title: 'Ingrediences', className: 'is-style-two-columns' }],
+						['fdd-block/para-with-title', { title: 'Ingredients', className: 'is-style-two-columns' }],
 						['fdd-block/para-with-title', { title: 'Preparation' }],
 						['fdd-block/para-with-title', { title: 'Instructions' }],
 						['fdd-block/para-with-title', { title: 'Notes' }],
