@@ -14,41 +14,5 @@ import './art/block.js';
 import './recipe/block.js';
 
 // Don't forget to update init.php to add new php render code
-
-wp.hooks.addFilter(
-  'blocks.registerBlockType',
-  'fdd-blocks/common/registerBlockType_hook',
-  function (properties, name) {
-    // ***** TODO
-    // Disabled because `properties.edit` is no longer a function.
-    // This was a hack anyway :(
-    if (false && name === 'core/image') {
-      //console.log(`registration`);
-      //console.log(properties);
-
-      let edit = properties.edit;
-      properties.edit = function () {
-        //console.log(`hook to core/image.edit() ENTER`);
-        //console.log(arguments);
-
-        let block = arguments[0];
-        //console.log(block);
-        let { attributes, className } = block;
-        if (className && !className.match(/\bno-link\b/)) {
-          block.setAttributes({
-            linkDestination: 'media',
-            href: attributes.url,
-            caption: '',
-          });
-        }
-
-        //console.log(edit);
-        let result = edit.apply(this, arguments);
-
-        //console.log(`hook to core/image.edit() LEAVE`);
-        return result;
-      }
-    }
-    return properties;
-  }
-);
+// The link type default should be fixed with
+// https://github.com/WordPress/gutenberg/pull/25578/commits
