@@ -6,6 +6,7 @@ if (!defined('ABSPATH')) {
 }
 
 function fdd_render_block__para_with_title($innerBlocks, $block, $attrs) {
+  $content = "";
   $title = $attrs['title'];
   $class_names = 'fdd-titled-para';
   if (array_key_exists('className', $attrs)) {

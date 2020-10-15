@@ -6,6 +6,7 @@ if (!defined('ABSPATH')) {
 }
 
 function fdd_render_block__recipe__page($innerBlocks, $block, $attrs) {
+  $content = "";
   $content .= "<div class='fdd-recipe--page'>";
   $content .= $innerBlocks;
   $content .= "<div class='fdd-heel'></div></div>";
@@ -14,6 +15,7 @@ function fdd_render_block__recipe__page($innerBlocks, $block, $attrs) {
 }
 
 function fdd_render_block__recipe__text($innerBlocks, $block, $attrs) {
+  $content = "";
   $excerpt = get_the_excerpt();
 
   $content .= "<div class='fdd-recipe--text' id='recipe_text'>";
@@ -27,6 +29,7 @@ function fdd_render_block__recipe__text($innerBlocks, $block, $attrs) {
 }
 
 function fdd_render_block__recipe__media($innerBlocks, $block, $attrs) {
+  $content = "";
   $has_images = preg_match("/<img\s/", $innerBlocks);
 
   $content .= "<div class='fdd-recipe--media'>";
@@ -53,6 +56,7 @@ function fdd_render_block__recipe__media($innerBlocks, $block, $attrs) {
 }
 
 function fdd_render_block__recipe__characteristics($innerBlocks, $block, $attrs) {
+  $content = "";
   $level = $attrs['level'];
   $level_class = 'fdd-recipe-level-' . strtolower($level);
   $prep_time = $attrs['prep_time'];

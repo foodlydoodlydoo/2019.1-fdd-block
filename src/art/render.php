@@ -6,6 +6,7 @@ if (!defined('ABSPATH')) {
 }
 
 function fdd_render_block__art($innerBlocks, $block, $attrs) {
+  $content = "";
   $has_images = preg_match("/<img\s/", $innerBlocks);
 
   $content .= "<div class='fdd-art--page'>";
@@ -20,6 +21,7 @@ function fdd_render_block__art($innerBlocks, $block, $attrs) {
 }
 
 function fdd_render_block__art__description_container($innerBlocks, $block, $attrs) {
+  $content = "";
   $content .= "<div class='fdd-art--description'>";
   $content .= "<div class='fdd-art--description-before'></div>";
   $content .= $innerBlocks;
