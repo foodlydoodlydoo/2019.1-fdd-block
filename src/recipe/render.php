@@ -43,6 +43,7 @@ function fdd_render_block__recipe__media($innerBlocks, $block, $attrs) {
   }
 
   $content .= "<div class='fdd-recipe--media'>";
+  // No other content here!  Only <figure>.  Breaks FDD_Carousel.click() detecting top image click.
   $content .= $innerBlocks;
   if ($has_images) {
     $content .= "<div class='fdd-recipe--cta-shop-bottom'>";
