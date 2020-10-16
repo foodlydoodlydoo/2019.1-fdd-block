@@ -20,3 +20,12 @@ function fdd_render_block__para_with_title($innerBlocks, $block, $attrs) {
 
   return $content;
 }
+
+function fdd_render_block__call_to_action_shop($innerBlocks, $block, $attrs) {
+  $content = "";
+  $content .= "<div class='fdd-call-to-action-inline--wrap'>";
+  $content .= __get_sidebar('shop-pages-call-to-action');
+  $content .= "</div>";
+
+  return $content;
+}

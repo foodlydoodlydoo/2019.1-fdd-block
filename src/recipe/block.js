@@ -1,4 +1,4 @@
-const { InnerBlocks, PlainText } = wp.editor;
+const { InnerBlocks, PlainText } = wp.blockEditor;
 const { registerBlockType } = wp.blocks;
 
 import './style.scss';

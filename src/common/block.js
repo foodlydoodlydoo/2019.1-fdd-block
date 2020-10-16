@@ -1,4 +1,4 @@
-const { InnerBlocks, PlainText } = wp.editor;
+const { InnerBlocks, PlainText } = wp.blockEditor;
 const { registerBlockType, registerBlockStyle } = wp.blocks;
 import domReady from '@wordpress/dom-ready';
 
@@ -116,4 +116,30 @@ registerBlockType('fdd-block/para-with-title', {
     },
   ]
 
+});
+
+/********************************************************
+ *   CtAs to be inlined in content
+ ********************************************************/
+
+registerBlockType('fdd-block/call-to-action-shop', {
+  title: '`Visit shop` CtA',
+  icon: 'megaphone',
+  category: 'fdd-block-category',
+  parent: [
+    //'fdd-block/recipe--page',
+    //'fdd-block/recipe--text',
+    'fdd-block/art',
+    'fdd-block/art--description-container',
+  ],
+  attributes: {
+  },
+
+  edit({ attributes, setAttributes, insertBlocksAfter }) {
+    return <div className="container">[ Shop ad in inline content ]</div>
+  },
+
+  save() {
+    return null;
+  },
 });

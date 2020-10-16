@@ -1,4 +1,4 @@
-const { InnerBlocks } = wp.editor;
+const { InnerBlocks } = wp.blockEditor;
 const { registerBlockType } = wp.blocks;
 
 import './style.scss';
@@ -21,6 +21,7 @@ registerBlockType('fdd-block/art', {
 						'fdd-block/art--description-container',
 						'core/image',
 						'core-embed/youtube',
+						'fdd-block/call-to-action-shop',
 					]}
 					template={[
 						['core/image', { className: "featured" }],
@@ -62,7 +63,10 @@ registerBlockType('fdd-block/art--description-container', {
 	edit() {
 		return (
 			<div>
-				<InnerBlocks allowedBlocks={['core/paragraph']} templateLock={false} />
+				<InnerBlocks allowedBlocks={[
+					'core/paragraph',
+					'fdd-block/call-to-action-shop',
+				]} templateLock={false} />
 			</div>
 		);
 	},
