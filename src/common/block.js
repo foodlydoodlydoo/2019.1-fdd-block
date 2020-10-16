@@ -135,8 +135,8 @@ registerBlockType('fdd-block/call-to-action-shop', {
   attributes: {
   },
 
-  edit({ attributes, setAttributes, insertBlocksAfter }) {
-    return <div className="container">[ Shop ad in inline content ]</div>
+  edit() {
+    return <div className="container">Shop ad in posts</div>
   },
 
   save() {
