@@ -32,22 +32,24 @@ function fdd_render_block__recipe__media($innerBlocks, $block, $attrs) {
   $content = "";
   $has_images = preg_match("/<img\s/", $innerBlocks);
 
-  if (0 && $has_images) {
-    // Disabled by default anyway, layout is kinda broken
+  /*
+  // Disabled by default anyway, layout is kinda broken
+  if ($has_images) {
     // Must not be inside `fdd-recipe--media`, <figure> must be first there
     // to not break some code in FDD_Carousel.click() detecting top image click:
     // `!target.prev().length`
     $content .= "<div class='fdd-recipe--cta-shop-top'>";
-    $content .= __get_sidebar('shop-pages-call-to-action');
+    $content .= fdd_get_shop_cta();
     $content .= "</div>";
   }
+  */
 
   $content .= "<div class='fdd-recipe--media'>";
   // No other content here!  Only <figure>.  Breaks FDD_Carousel.click() detecting top image click.
   $content .= $innerBlocks;
   if ($has_images) {
     $content .= "<div class='fdd-recipe--cta-shop-bottom'>";
-    $content .= __get_sidebar('shop-pages-call-to-action');
+    $content .= fdd_get_shop_cta();
     $content .= "</div>";
   }
   $content .= "<span class='fdd-recipe--media-nav' id='arrow_left'></span>";

@@ -100,13 +100,9 @@ function fdd_render_block_frontend($content, $block) {
 }
 add_action('render_block', 'fdd_render_block_frontend', 10, 2);
 
-function __get_sidebar($id) {
-  ob_start();
-  dynamic_sidebar($id);
-  $sidebar = ob_get_contents();
-  ob_end_clean();
 
-  return $sidebar;
+function fdd_get_shop_cta() {
+  return FDD\Core\get_custom_content("shop_cta_in_posts");
 }
 
 require_once 'art/render.php';
