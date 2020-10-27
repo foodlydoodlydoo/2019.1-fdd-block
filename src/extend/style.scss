@@ -1,0 +1,39 @@
+// Product link inside an image
+
+figure.wp-block-image {
+  > a {
+    position: relative;
+    display: block; // to show the inline cta position correctly
+  }
+  a.fdd-product-link {
+    display: none;
+    position: absolute;
+    bottom: 0.6em;
+    right: 0.6em;
+    background-color: $fdd-red-color;
+    color: white;
+    font-size: 14px;
+    line-height: 0.8;
+    padding: 0.5em;
+    &::after {
+      //font-family: "WPMenuCart";
+      //content: "\f07a";
+      content: "\1F86B";
+      text-decoration: underline;
+    }
+    > span {
+      padding-right: 0.5em;
+      display: none;
+    }
+  }
+}
+figure.wp-block-image:hover {
+  a.fdd-product-link {
+    display: inline-block;
+    @media screen and (min-width: $fdd-narrow-width-pixels) {
+      &:hover > span {
+        display: inline;
+      }
+    }
+  }
+}

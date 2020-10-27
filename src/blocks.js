@@ -16,3 +16,5 @@ import './recipe/block.js';
 // Don't forget to update init.php to add new php render code
 // The link type default should be fixed with
 // https://github.com/WordPress/gutenberg/pull/25578/commits
+
+import './extend/image-product.js';

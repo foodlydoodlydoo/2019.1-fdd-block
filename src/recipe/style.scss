@@ -60,7 +60,7 @@ $fdd-carousel-nav-arrow-centering: calc(50% - 0.75em);
     .fdd-recipe--media {
       figure {
         display: flex;
-        a {
+        > a {
           margin-left: auto;
           margin-right: auto;
         }
@@ -204,6 +204,12 @@ $fdd-carousel-nav-arrow-centering: calc(50% - 0.75em);
             //object-fit: cover;
             object-position: 50% 50%;
             clear: both;
+          }
+        }
+        figure.wp-block-image:not(:first-of-type) {
+          a.fdd-product-link {
+            // Don't show the download button on thumbs under the carousel
+            display: none;
           }
         }
 
