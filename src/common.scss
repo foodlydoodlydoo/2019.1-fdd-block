@@ -6,7 +6,7 @@
 */
 
 // Shared code
-@import '../../../shared/fdd-common/common';
+@import "../../../shared/fdd-common/common";
 
 // Colors.
 $black: rgb(41, 41, 41);
@@ -14,11 +14,6 @@ $white: #f4f4f4;
 $gray: #aaa;
 $off-white: #f1f1f1;
 $white-transparent: rgba(255, 255, 255, 0.9);
-
-.block-editor span.oob {
-  font-style: italic;
-  color: #aaa;
-}
 
 @mixin title__float_right {
   text-align: left;

@@ -5,23 +5,29 @@
  * which makes it higher in priority.
  */
 
-@import '../common';
+@import "../common";
 
-.wp-block {    
+.block-editor span.oob {
+  font-style: italic;
+  color: #aaa;
+}
+
+.wp-block {
   .container {
     border: 2px solid $gray;
     padding: 1rem;
   }
 }
 
-.components-panel, .components-popover {
+.components-panel,
+.components-popover {
   .editor-block-styles__item.is-active {
-     .fake-preview:before {
-        content: '\2705';
-        font-size: 2em;
-        text-align: center;
-        display: block;
-     }
+    .fake-preview:before {
+      content: "\2705";
+      font-size: 2em;
+      text-align: center;
+      display: block;
+    }
   }
   .editor-block-styles__item {
     figure.wp-block-embed {
@@ -36,7 +42,9 @@ figure.wp-block-embed {
   width: auto !important;
   .wp-block-embed__wrapper {
     padding-top: initial !important;
-    iframe, object, embed {
+    iframe,
+    object,
+    embed {
       outline: none !important;
     }
   }
