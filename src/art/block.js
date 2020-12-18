@@ -20,7 +20,7 @@ registerBlockType('fdd-block/art', {
 					allowedBlocks={[
 						'fdd-block/art--description-container',
 						'core/image',
-						'core-embed/youtube',
+						'core/embed',
 						'fdd-block/call-to-action-shop',
 					]}
 					template={[
